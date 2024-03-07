@@ -35,10 +35,11 @@ export class AuthComponent implements OnInit
 
   const email = form.value.email;
   const password = form.value.password;
+  const location = form.value.location;
 
   if (this.isLoginMode)
   {
-    this.authService.signIn(email, password) .subscribe(resData => 
+    this.authService.signIn(email, password, location) .subscribe(resData => 
       {
           this.router.navigate(['/dashboard']);
     }); 

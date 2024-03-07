@@ -14,14 +14,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angu
 import { WorkTimeComponent } from './timer/timer.component';
 import { AuthInterceptorService } from './modules/auth/auth-interceptor.service';
 import { AuthGuard } from './modules/auth/auth.guard';
+import { ClaimComponent } from './modules/claim/claim.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
   , { path: 'authenticate', component: AuthComponent}
   , { path: 'users', component: UserComponent }
-  , { path: 'dashboard'
-    , component: DashboardComponent
-    , canActivate: [AuthGuard] }
+  , { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  , {path: 'claims', component: ClaimComponent, canActivate: [AuthGuard]}
 ]; 
 
 @NgModule({

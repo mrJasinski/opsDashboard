@@ -1,20 +1,22 @@
 package com.opsDashboard.vo;
 
-public class UserSource
+public class ClaimSource
 {
     private int id;
 
-    UserSource()
+    ClaimSource()
     {
     }
 
-    public UserSource(final int id)
+    ClaimSource(final int id)
     {
         this.id = id;
     }
 
-    public int getId()
+     public int getId()
     {
         return this.id;
     }
+
+
 }

@@ -1,6 +1,6 @@
 package com.opsDashboard.specialAccess;
 
-public enum Status
+public enum SAStatus
 {
     CREATED
     , WAITING_FOR_LOCAL_APPROVAL

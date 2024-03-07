@@ -1,10 +1,8 @@
 package com.opsDashboard.specialAccess;
 
 import com.opsDashboard.utils.Country;
-import com.opsDashboard.vo.UserSource;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 class SpecialAccess
 {
@@ -16,14 +14,14 @@ class SpecialAccess
     private String explanation;
     private TransportMethod transportMethod;
     private LocalDate pickupDate;
-    private Status status;
+    private SAStatus status;
 
     SpecialAccess()
     {
     }
 
     SpecialAccess(final Country country, final String stockId, final String link, final Reason reason, final String explanation
-            , final TransportMethod transportMethod, final LocalDate pickupDate, final Status status)
+            , final TransportMethod transportMethod, final LocalDate pickupDate, final SAStatus status)
     {
         this.country = country;
         this.stockId = stockId;
@@ -36,38 +34,38 @@ class SpecialAccess
     }
 
     SpecialAccess(final int id, final Country country, final String stockId, final String link, final Reason reason, final String explanation
-            , final TransportMethod transportMethod, final LocalDate pickupDate, final Status status)
+            , final TransportMethod transportMethod, final LocalDate pickupDate, final SAStatus status)
     {
         this(country, stockId, link, reason, explanation, transportMethod, pickupDate, status);
         this.id = id;
     }
 
-    void changeStatus(final Status status, final boolean isApproved)
+    void changeStatus(final SAStatus SAStatus, final boolean isApproved)
     {
-        switch (status)
+        switch (SAStatus)
         {
             case CREATED ->
             {
                 if (isApproved)
-                    this.status = Status.WAITING_FOR_LOCAL_APPROVAL;
+                    this.status = SAStatus.WAITING_FOR_LOCAL_APPROVAL;
             }
 
             case WAITING_FOR_LOCAL_APPROVAL ->
             {
                 if (isApproved)
-                    this.status = Status.WAITING_FOR_HQ_APPROVAL;
+                    this.status = SAStatus.WAITING_FOR_HQ_APPROVAL;
 
                 if (!isApproved)
-                    this.status = Status.LOCAL_REJECTED;
+                    this.status = SAStatus.LOCAL_REJECTED;
             }
 
             case WAITING_FOR_HQ_APPROVAL ->
             {
                 if (isApproved)
-                    this.status = Status.GRANTED;
+                    this.status = SAStatus.GRANTED;
 
                 if (!isApproved)
-                    this.status = Status.HQ_REJECTED;
+                    this.status = SAStatus.HQ_REJECTED;
             }
         }
     }
@@ -112,7 +110,7 @@ class SpecialAccess
         return this.pickupDate;
     }
 
-    public Status getStatus()
+    public SAStatus getStatus()
     {
         return this.status;
     }
@@ -124,29 +122,13 @@ class SpecialAccess
         , NOT_PICKED_UP
     }
 
-    static class Reason
+    enum Reason
     {
-        private int id;
-        private String name;
-
-        Reason()
-        {
-        }
-
-        Reason(final String name)
-        {
-            this.name = name;
-        }
-
-        public int getId()
-        {
-            return this.id;
-        }
-
-        public String getName()
-        {
-            return this.name;
-        }
+        ADMIN_PROBLEM
+        , LATE_PU_DATE_UPDATE
+        , MILEAGE_MANIPULATION
+        , NRC
+        , MISSING_DOCS
     }
 }
 

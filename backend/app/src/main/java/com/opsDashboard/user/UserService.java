@@ -1,9 +1,14 @@
 package com.opsDashboard.user;
 
+import com.opsDashboard.user.dto.RoleDTO;
+import com.opsDashboard.user.dto.UserDTO;
+import com.opsDashboard.utils.Country;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class UserService
@@ -29,12 +34,94 @@ public class UserService
 
     public RoleDTO getRoleByUserIdAsDto(final int userId)
     {
-
         return toDto(getRoleByUserId(userId));
     }
 
     private RoleDTO toDto(final User.Role role)
     {
-        return new RoleDTO(role.getCountries(), role.getSaStatuses());
+        return new RoleDTO(role.getType().name(), role.unwrapCountries(role.getCountries()));
+//        return new RoleDTO(role.getType().name(), role.getCountries(), role.getSaStatuses());
     }
+
+    private UserDTO toDto(final User user)
+    {
+        return new UserDTO(user.getEmail(), user.getPassword(), toDto(user.getRole()));
+    }
+
+    User getUserByEmail(final String email)
+    {
+        return this.userRepo.findByEmail(email)
+                .orElseThrow(() -> new NoSuchElementException("User with given email not found!"));
+    }
+
+    public UserDTO getUserByEmailAsDto(final String email)
+    {
+        return toDto(getUserByEmail(email));
+    }
+
+    void startWorkday(final String email, final WorkLocation location)
+    {
+        var user = getUserByEmail(email);
+
+        if (user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().isEmpty())
+            user.addWorkday(location, LocalDate.now(), LocalTime.now());
+
+        if (!user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().isEmpty())
+            user.restartWorkday(LocalDate.now(), LocalTime.now());
+
+        this.userRepo.save(user);
+    }
+
+    void stopWorkday(final String email)
+    {
+        var user = getUserByEmail(email);
+
+        var workday = user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().get(0);
+
+        var startTime = workday.getStartTime();
+
+        if (!(workday.getRestartTime()).equals(workday.getStartTime()))
+            startTime = workday.getRestartTime();
+
+        var minutes = (int)Duration.between(startTime, LocalTime.now()).toMinutes();
+
+        workday.addWorkTimeMins(minutes);
+
+        this.userRepo.save(user);
+    }
+
+//    List<User> getAvailableOpsByCountry(final Country country)
+//    {
+//        return this.userRepo.findAvailableByCountry(country);
+//    }
+
+//    public List<UserDTO> getAvailableOpsByCountryAsDto(final Country country)
+//    {
+//        return getAvailableOpsByCountry(country)
+//                .stream()
+//                .map(this::toDto)
+//                .toList();
+//    }
+
+//    User getAvailableUserByCountryWithLowestClaimsCountByDate(final Country country, final LocalDate date)
+//    {
+////        TODO better
+//
+//        return this.userRepo.findAvailableByCountryWithLowestClaimsCountByDate(country, date)
+//                .orElseThrow(() -> new NoSuchElementException("Available user iw"));
+//    }
+//    TODO temporal name
+    User getUserWithPreviouslyAssignedStockId(final Country country, final String stockId)
+    {
+        return this.userRepo.findAvailableByCountryAndStockId(country, stockId)
+            .orElseThrow(() -> new NoSuchElementException("Not found!"));
+    }
+
+
+
+//    User getUserToAssignClaimToByCountryAndStockId(final Country country, final String stockId)
+//    {
+//        return this.userRepo.findAvailableByCountryStockId(country, stockId)
+//                .orElseGet(() -> getAvailableUserByCountryWithLowestClaimsCountByDate(country, LocalDate.now()));
+//    }
 }

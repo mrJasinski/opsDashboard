@@ -22,7 +22,7 @@
                 <td>
                     <a routerLink="{{fullRefund.link}}">{{fullRefund.stockId}}</a>
                 </td>
-                <td>{{fullRefund.status}}</td>
+                <td>{{fullRefund.SAStatus}}</td>
               </tr>
             </tbody>
           </table>
@@ -57,7 +57,7 @@
                 <button class="btn btn-primary" style="background-color: green;" (click)="onApproveSA(true, special.stockId)" >Approve</button>
                 <button class="btn btn-primary" style="background-color: red;" (click)="onApproveSA(false, special.stockId)" type="button" >Reject</button>
               </td>
-              <td>{{special.status}}</td>
+              <td>{{special.SAStatus}}</td>
             </tr>
           </tbody>
         </table>

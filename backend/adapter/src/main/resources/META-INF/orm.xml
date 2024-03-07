@@ -15,12 +15,34 @@
             </id>
             <basic name="email"/>
             <basic name="password"/>
+            <basic name="isAvailable" />
             <many-to-one name="role">
                 <join-column name="role_id" />
                 <cascade>
                     <cascade-all/>
                 </cascade>
             </many-to-one>
+            <one-to-many name="workdays" >
+                <join-column name="user_id" />
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.user.User$Workday" access="FIELD" >
+        <table name="workdays" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="workday" />
+            <basic name="startTime" />
+            <basic name="workTimeMins" />
+            <basic name="location" >
+                <enumerated>STRING</enumerated>
+            </basic>
         </attributes>
     </entity>
 
@@ -34,7 +56,22 @@
                 <enumerated>STRING</enumerated>
             </basic>
             <basic name="countries" />
-            <basic name="saStatuses" />
+<!--            <one-to-many name="countries">-->
+<!--                <cascade>-->
+<!--                    <cascade-all/>-->
+<!--                </cascade>-->
+<!--            </one-to-many>-->
+<!--            <one-to-many name="saStatuses">-->
+<!--                <cascade>-->
+<!--                    <cascade-all/>-->
+<!--                </cascade>-->
+<!--            </one-to-many>-->
+<!--            <basic name="countries" >-->
+<!--                   <enumerated>STRING</enumerated>-->
+<!--            </basic>-->
+<!--            <basic name="saStatuses" >-->
+<!--                <enumerated>STRING</enumerated>-->
+<!--            </basic>-->
         </attributes>
     </entity>
 
@@ -44,7 +81,7 @@
             <id name="id">
                 <generated-value strategy="IDENTITY" />
             </id>
-            <basic name="country"/>
+            <basic name="country" />
             <basic name="stockId"/>
             <basic name="link"/>
             <basic name="explanation"/>
@@ -55,24 +92,54 @@
             <basic name="status">
                 <enumerated>STRING</enumerated>
             </basic>
-            <many-to-one name="reason">
-                <join-column name="reason_id" />
-                <cascade>
-                    <cascade-all/>
-                </cascade>
-            </many-to-one>
+            <basic name="reason">
+                <enumerated>STRING</enumerated>
+            </basic>
         </attributes>
     </entity>
 
-    <entity class="com.opsDashboard.specialAccess.SpecialAccess$Reason" access="FIELD">
-        <table name="special_access_reasons" />
+    <entity class="com.opsDashboard.claim.Claim" access="FIELD">
+        <table name="claims" />
         <attributes>
             <id name="id">
                 <generated-value strategy="IDENTITY" />
             </id>
-            <basic name="name" />
+            <basic name="claimNumber" />
+            <basic name="link" />
+            <basic name="status">
+                <enumerated>STRING</enumerated>
+            </basic>
+            <basic name="assignedDate" />
+            <embedded name="vehicle" />
+            <embedded name="assignedAgent">
+                <attribute-override name="id">
+                    <column name="user_id"/>
+                </attribute-override>
+            </embedded>
         </attributes>
     </entity>
+
+    <entity class="com.opsDashboard.vehicle.Vehicle" access="FIELD">
+        <table name="vehicles" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="stockId" />
+           <embedded name="merchant">
+                <attribute-override name="id">
+                    <column name="merchant_id"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
+<!--    <entity class="com.opsDashboard.utils.Country" access="FIELD" >-->
+<!--        <table name="countries" />-->
+<!--        <attributes>-->
+<!--            <basic name="name" />-->
+<!--        </attributes>-->
+<!--    </entity>-->
 
     <embeddable class="com.opsDashboard.vo.UserSource" access="FIELD">
         <attributes>
@@ -80,4 +147,21 @@
         </attributes>
     </embeddable>
 
+    <embeddable class="com.opsDashboard.vo.MerchantSource" access="FIELD" >
+        <attributes>
+            <basic name="id" />
+        </attributes>
+    </embeddable>
+
+    <embeddable class="com.opsDashboard.vo.VehicleSource" access="FIELD" >
+        <attributes>
+            <basic name="stockId" />
+        </attributes>
+    </embeddable>
+
+    <embeddable class="com.opsDashboard.vo.ClaimSource" access="FIELD" >
+        <attributes>
+            <basic name="id" />
+        </attributes>
+    </embeddable>
 </entity-mappings>

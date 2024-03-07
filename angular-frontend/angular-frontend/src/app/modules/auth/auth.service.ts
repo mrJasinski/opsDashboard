@@ -32,13 +32,14 @@ export class AuthService
             });
     }
 
-    signIn(email: string, password: string)
+    signIn(email: string, password: string, location: string)
     {
         return this.http.post(
             AppConstants.APP_URL + AppConstants.AUTH_API_URL, 
             { 
                 email : email
                 , password : password
+                , location : location
             }
             , {responseType: 'text'})
              .pipe(tap(resData => 
@@ -68,6 +69,11 @@ export class AuthService
         localStorage.removeItem('tokenData');
         this.router.navigate(['/authenticate']);
 
-        console.log(this.token);
+        return this.http.get(AppConstants.APP_URL + AppConstants.WORKDAY_END_URL);
+    }
+
+    getMins()
+    {
+        return 20 * 60;
     }
 }

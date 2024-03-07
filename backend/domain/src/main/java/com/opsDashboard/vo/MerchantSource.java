@@ -1,19 +1,19 @@
 package com.opsDashboard.vo;
 
-public class UserSource
+public class MerchantSource
 {
     private int id;
 
-    UserSource()
+    MerchantSource()
     {
     }
 
-    public UserSource(final int id)
+    MerchantSource(final int id)
     {
         this.id = id;
     }
 
-    public int getId()
+     public int getId()
     {
         return this.id;
     }

@@ -1,6 +1,6 @@
 package com.opsDashboard.security;
 
-import com.opsDashboard.user.UserDTO;
+import com.opsDashboard.user.dto.UserDTO;
 import com.opsDashboard.user.UserService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -60,6 +60,7 @@ public class JwtService
         var claims = new HashMap<String, Object>();
 
         return createToken(claims, userName);
+//        return new JwtResponse(createToken(claims, userName));
     }
 
     private String createToken(Map<String, Object> claims, String subject)
