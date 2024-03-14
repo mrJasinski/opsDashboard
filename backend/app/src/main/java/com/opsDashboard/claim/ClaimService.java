@@ -3,10 +3,13 @@ package com.opsDashboard.claim;
 import com.opsDashboard.claim.dto.ClaimDTO;
 import com.opsDashboard.claim.dto.ClaimWriteModel;
 import com.opsDashboard.merchant.MerchantService;
+import com.opsDashboard.specialAccess.SAStatus;
 import com.opsDashboard.user.UserService;
+import com.opsDashboard.utils.Country;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ClaimService
@@ -95,5 +98,11 @@ public class ClaimService
     List<Claim> getAllClaims()
     {
         return this.claimRepo.findAll();
+    }
+
+    public int getClaimCountByCountriesAndStatuses(final Set<Country> countries, final Set<ClaimStatus> statuses)
+    {
+        return this.claimRepo.findClaimCountByCountriesAndStatuses(countries, statuses)
+                .orElse(0);
     }
 }

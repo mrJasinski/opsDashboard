@@ -1,6 +1,7 @@
 package com.opsDashboard.user;
 
 import com.opsDashboard.security.JwtService;
+import com.opsDashboard.user.dto.Dashboard;
 import com.opsDashboard.user.dto.UserDTO;
 import com.opsDashboard.utils.Country;
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,6 +11,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+
 @RestController
 //@CrossOrigin(origins = "http://localhost:4200")
 class UserController
@@ -18,25 +21,25 @@ class UserController
     private final UserService userService;
     private final JwtService jwtService;
     private final AuthenticationManager authManager;
+    private final DashboardService dashboardService;
 
-    UserController(final UserRepository userRepo, final UserService userService, final JwtService jwtService, final AuthenticationManager authManager)
+    UserController(UserRepository userRepo
+            , UserService userService
+            , JwtService jwtService
+            , AuthenticationManager authManager
+            , DashboardService dashboardService)
     {
         this.userRepo = userRepo;
         this.userService = userService;
         this.jwtService = jwtService;
         this.authManager = authManager;
+        this.dashboardService = dashboardService;
     }
 
     @GetMapping("/dashboard")
-    ResponseEntity<?> getDashboard()
+    ResponseEntity<?> getDashboard(HttpServletRequest request)
     {
-        var response = new Dashboard("Response from spring!");
-
-//        var fullRefunds =
-
-        var sa = new Dashboard("Special Accesses: Ongoing : " + "xx" + " // Pending: " + "yy");
-
-        return ResponseEntity.ok(sa);
+        return ResponseEntity.ok(this.dashboardService.getDashboardByUserId(this.jwtService.getUserIdFromToken(request)));
     }
 
     @PostMapping("/register")
@@ -84,5 +87,19 @@ class UserController
         var user = this.userService.getUserWithPreviouslyAssignedStockId(country, stockId);
 
         return ResponseEntity.ok(user);
+    }
+
+    @GetMapping(value = "/lowest", params = {"country", "assignDate"})
+    ResponseEntity<?> getLowest(@RequestParam(name = "country") Country country, @RequestParam(name = "assignDate") LocalDate assignDate)
+    {
+        var user = this.userService.getUserWithLowestDailyAssignedClaimsByCountryAndDate(country, assignDate);
+
+        return ResponseEntity.ok(user);
+    }
+
+    @GetMapping(value = "/claimsByUser", params = {"assignDate"})
+    ResponseEntity<?> getClaimsByUser(@RequestParam(name = "assignDate") LocalDate assignDate)
+    {
+        return ResponseEntity.ok(this.userRepo.findLowest(assignDate));
     }
 }

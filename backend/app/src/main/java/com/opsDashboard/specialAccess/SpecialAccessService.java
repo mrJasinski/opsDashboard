@@ -1,13 +1,15 @@
 package com.opsDashboard.specialAccess;
 
 import com.opsDashboard.user.UserService;
+import com.opsDashboard.utils.Country;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 
 @Service
-class SpecialAccessService
+public class SpecialAccessService
 {
     private final SpecialAccessRepository specialAccessRepo;
     private final UserService userService;
@@ -42,5 +44,11 @@ class SpecialAccessService
 
         sa.changeStatus(sa.getStatus(), isApproved);
         this.specialAccessRepo.save(sa);
+    }
+
+    public int getSACountByCountriesAndStatuses(final Set<Country> countries, final Set<SAStatus> sAStatuses)
+    {
+        return this.specialAccessRepo.findCountByCountriesAndStatuses(countries, sAStatuses)
+                .orElse(0);
     }
 }

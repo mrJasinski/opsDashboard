@@ -33,6 +33,12 @@ class UserInitializer implements ApplicationListener<ContextRefreshedEvent>
                , new User.Role(User.Role.Type.DM_CEE , countries)
                , true));
 //               , new User.Role(User.Role.Type.DM_CEE , Utils.ceeWithoutPL, Set.of(SAStatus.WAITING_FOR_LOCAL_APPROVAL, SAStatus.HQ_REJECTED))));
+
+        this.userRepo.save(new User(
+                "dm_ee@example.com"
+                , this.encoder.encode("12345")
+                , new User.Role(User.Role.Type.DM_PL , Set.of(Country.EE))
+                , true));
     }
 }
 

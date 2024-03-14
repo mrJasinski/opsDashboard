@@ -5,22 +5,14 @@ class FullRefund
     private String country;
     private String stockId;
     private String link;
-    private Status status;
+    private FRStatus status;
 
-    FullRefund(final String country, final String stockId, final String link, final Status status)
+    FullRefund(final String country, final String stockId, final String link, final FRStatus status)
     {
         this.country = country;
         this.stockId = stockId;
         this.link = link;
         this.status = status;
-    }
-
-    enum Status
-    {
-        HQ_PRICING
-        , HOO_APPROVAL
-        , MD_APPROVAL
-        , TO_BE_SEND
     }
 
     public String getCountry()
@@ -38,7 +30,7 @@ class FullRefund
         return link;
     }
 
-    public Status getStatus()
+    public FRStatus getStatus()
     {
         return status;
     }

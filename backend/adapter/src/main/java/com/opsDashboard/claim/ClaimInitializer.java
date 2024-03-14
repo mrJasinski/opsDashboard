@@ -18,7 +18,6 @@ class ClaimInitializer implements ApplicationListener<ContextRefreshedEvent>
         this.claimRepo = claimRepo;
     }
 
-
     @Override
     public void onApplicationEvent(final ContextRefreshedEvent event)
     {
@@ -28,6 +27,21 @@ class ClaimInitializer implements ApplicationListener<ContextRefreshedEvent>
                 , ClaimStatus.WAITING_FOR_CE_DECISION
                 , new VehicleSource("NE12345")
                 , LocalDate.now(), new UserSource(1)));
+
+        this.claimRepo.save(new Claim(
+                1
+                , "link"
+                , ClaimStatus.WAITING_FOR_CE_DECISION
+                , new VehicleSource("UK90876")
+                , LocalDate.now(), new UserSource(1)));
+
+        this.claimRepo.save(new Claim(
+                1
+                , "link"
+                , ClaimStatus.WAITING_FOR_CE_DECISION
+                , new VehicleSource("TR76543")
+                , LocalDate.now(), new UserSource(2)));
+
     }
 //    @Component
 //class UserInitializer implements ApplicationListener<ContextRefreshedEvent>

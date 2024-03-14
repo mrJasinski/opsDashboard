@@ -4,58 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/ClaimInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/SqlClaimRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/config/AuthManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/config/DashboardPasswordEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/filter/CsrfCookieFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/filter/JwtAuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/claim/ClaimService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/claim/dto/ClaimDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/claim/dto/ClaimWriteModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/merchant/MerchantService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/RoleDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/UserDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/claim/Claim.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/claim/ClaimRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/claim/ClaimStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/merchant/Merchant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/WorkLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/ClaimSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/MerchantSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/VehicleSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/monolith/src/test/java/com/opsDashboard/TestConfig.java" afterDir="false" />
+    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="establishing base modules, services, repos, controllers etc">
+      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/full/FullRefundService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/DashboardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/full/FRStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/constans/app.constans.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/constans/app.constans.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/user/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/user/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/timer/timer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/timer/timer.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/ClaimController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/ClaimController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SAInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SAInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/ClaimInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/ClaimInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/SqlClaimRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/claim/SqlClaimRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/security/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SqlSpecialAccessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SqlSpecialAccessRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserInitializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/claim/ClaimService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/claim/ClaimService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/specialAccess/SpecialAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/specialAccess/SpecialAccessService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/SpecialAccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/SpecialAccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/SAStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/RoleDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/claim/ClaimRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/claim/ClaimRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/full/FullRefund.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/full/FullRefund.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/SpecialAccessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/specialAccess/SpecialAccessRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/UserSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/UserSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/monolith/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monolith/src/main/resources/application-local.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +101,8 @@
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
-      &quot;h2&quot;
+      &quot;h2&quot;,
+      &quot;mysql&quot;
     ]
   }
 }</component>
@@ -230,7 +205,13 @@
       <workItem from="1709633412312" duration="4513000" />
       <workItem from="1709748392863" duration="9173000" />
       <workItem from="1709816451092" duration="653000" />
-      <workItem from="1709817120387" duration="5961000" />
+      <workItem from="1709817120387" duration="6805000" />
+      <workItem from="1709888110715" duration="8000" />
+      <workItem from="1709888186771" duration="8000" />
+      <workItem from="1709907614663" duration="18050000" />
+      <workItem from="1710189138212" duration="6008000" />
+      <workItem from="1710243428719" duration="2409000" />
+      <workItem from="1710340327984" duration="6047000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -240,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709292136571</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="establishing base modules, services, repos, controllers etc">
+      <option name="closed" value="true" />
+      <created>1709824062034</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709824062034</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -248,6 +237,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="establishing base modules, services, repos, controllers etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="establishing base modules, services, repos, controllers etc" />
   </component>
 </project>

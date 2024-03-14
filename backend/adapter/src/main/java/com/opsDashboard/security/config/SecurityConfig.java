@@ -56,14 +56,14 @@ class SecurityConfig
                                 }))
                 .csrf(csrf -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers("/register",
                         "/authenticate", "/dashboard", "/pendingSpecialAccess", "/SAStatusChange**", "/fullRefunds", "/workdays", "/stopWorkday", "/claims"
-                        , "/xxx**")
+                        , "/xxx**", "/lowest**", "/claimsByUser**")
                         .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                         .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
                         .addFilterBefore(this.authFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(requests -> requests
                                 .requestMatchers("/register", "/authenticate", "/users").permitAll()
                                 .requestMatchers("/dashboard", "/pendingSpecialAccess", "/SAStatusChange**", "/fullRefunds", "/workdays"
-                                        , "/stopWorkday", "/claims", "/xxx**").authenticated())
+                                        , "/stopWorkday", "/claims", "/xxx**", "/lowest**", "/claimsByUser**").authenticated())
                         .httpBasic(Customizer.withDefaults());
 
         return http.build();

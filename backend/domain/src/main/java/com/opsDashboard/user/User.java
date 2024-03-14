@@ -1,8 +1,9 @@
 package com.opsDashboard.user;
 
+import com.opsDashboard.claim.ClaimStatus;
+import com.opsDashboard.full.FRStatus;
 import com.opsDashboard.specialAccess.SAStatus;
 import com.opsDashboard.utils.Country;
-import com.opsDashboard.vo.ClaimSource;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -160,7 +161,9 @@ class User
         private int id;
         private Type type;
         private String countries;
-//        private Set<SAStatus> saStatuses;
+        private String claimStatuses;
+        private String sAStatuses;
+        private String fRStatuses;
 
         Role()
         {
@@ -184,9 +187,7 @@ class User
             var result = new StringBuilder();
 
             for (final Country country : countries)
-            {
                 result.append(country).append(" ");
-            }
 
             return result.toString();
         }
@@ -199,6 +200,72 @@ class User
 
             for (int i = 0; i < countriesSplit.length; i++)
                 enums[i] = Country.valueOf(countriesSplit[i]);
+
+            return Set.of(enums);
+        }
+
+        String wrapClaimStatuses(Set<ClaimStatus> statuses)
+        {
+            var result = new StringBuilder();
+
+            for (final ClaimStatus status : statuses)
+                result.append(status).append(" ");
+
+            return result.toString();
+        }
+
+        Set<ClaimStatus> unwrapClaimStatuses(String statuses)
+        {
+            var statusesSplit = statuses.split(" ");
+
+            var enums = new ClaimStatus[statusesSplit.length];
+
+            for (int i = 0; i < statusesSplit.length; i++)
+                enums[i] = ClaimStatus.valueOf(statusesSplit[i]);
+
+            return Set.of(enums);
+        }
+
+        String wrapSAStatuses(Set<SAStatus> statuses)
+        {
+            var result = new StringBuilder();
+
+            for (final SAStatus status : statuses)
+                result.append(status).append(" ");
+
+            return result.toString();
+        }
+
+        Set<SAStatus> unwrapSAStatuses(String statuses)
+        {
+            var statusesSplit = statuses.split(" ");
+
+            var enums = new SAStatus[statusesSplit.length];
+
+            for (int i = 0; i < statusesSplit.length; i++)
+                enums[i] = SAStatus.valueOf(statusesSplit[i]);
+
+            return Set.of(enums);
+        }
+
+        String wrapFRStatuses(Set<FRStatus> statuses)
+        {
+            var result = new StringBuilder();
+
+            for (final FRStatus status : statuses)
+                result.append(status).append(" ");
+
+            return result.toString();
+        }
+
+        Set<FRStatus> unwrapFRStatuses(String statuses)
+        {
+            var statusesSplit = statuses.split(" ");
+
+            var enums = new FRStatus[statusesSplit.length];
+
+            for (int i = 0; i < statusesSplit.length; i++)
+                enums[i] = FRStatus.valueOf(statusesSplit[i]);
 
             return Set.of(enums);
         }
@@ -218,19 +285,47 @@ class User
             return this.countries;
         }
 
-//        public Set<SAStatus> getSaStatuses()
-//        {
-//            return this.saStatuses;
-//        }
+        String getClaimStatuses()
+        {
+            return this.claimStatuses;
+        }
+
+        String getSAStatuses()
+        {
+            return this.sAStatuses;
+        }
+
+        String getFRStatuses()
+        {
+            return this.fRStatuses;
+        }
+
+        Set<Country> getCountriesSet()
+        {
+            return unwrapCountries(this.countries);
+        }
+
+        Set<ClaimStatus> getClaimStatusesSet()
+        {
+            return unwrapClaimStatuses(this.claimStatuses);
+        }
+
+        Set<SAStatus> getSAStatusesSet()
+        {
+            return unwrapSAStatuses(this.sAStatuses);
+        }
+
+        Set<FRStatus> getFRStatusesSet()
+        {
+            return unwrapFRStatuses(this.fRStatuses);
+        }
 
         enum Type
         {
-            TL_OPS_PL
-            , TL_OPS_BALTICS
-            , TL_OPS_BALKANS
-            , TL_OPS_CZSK
-            , DM_PL
-            , DM_CEE
+            TEAM_LEADER
+            , DECISION_MAKER
+            , OPS_AGENT
+            , DEALER_SERVICE_AGENT
         }
     }
 }

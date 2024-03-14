@@ -90,32 +90,48 @@ public class UserService
         this.userRepo.save(user);
     }
 
-//    List<User> getAvailableOpsByCountry(final Country country)
-//    {
-//        return this.userRepo.findAvailableByCountry(country);
-//    }
-
-//    public List<UserDTO> getAvailableOpsByCountryAsDto(final Country country)
-//    {
-//        return getAvailableOpsByCountry(country)
-//                .stream()
-//                .map(this::toDto)
-//                .toList();
-//    }
-
-//    User getAvailableUserByCountryWithLowestClaimsCountByDate(final Country country, final LocalDate date)
-//    {
-////        TODO better
-//
-//        return this.userRepo.findAvailableByCountryWithLowestClaimsCountByDate(country, date)
-//                .orElseThrow(() -> new NoSuchElementException("Available user iw"));
-//    }
 //    TODO temporal name
     User getUserWithPreviouslyAssignedStockId(final Country country, final String stockId)
     {
         return this.userRepo.findAvailableByCountryAndStockId(country, stockId)
             .orElseThrow(() -> new NoSuchElementException("Not found!"));
     }
+
+    User getUserWithLowestDailyAssignedClaimsByCountryAndDate(final Country country, final LocalDate date)
+    {
+        return this.userRepo.findAvailableWithLowestDailyAssignedClaimByCountryAndDate(country, date)
+                .orElseThrow(() -> new NoSuchElementException("Not found!"));
+    }
+
+//    private User getUserWithLowestDailyAssignedTicketsByCountryAndDate(final Country country, final LocalDate date)
+//    {
+//        return this.userRepo.findAvailableWithLowestDailyAssignedTicketByCountryAndDate(country, date);
+//    }
+//
+//    UserDTO getUserToAssignClaimToAsDto(final Country country, final String stockId, final LocalDate date)
+//    {
+//        User user;
+//
+//        try
+//        {
+//            user = getUserWithPreviouslyAssignedStockId(country, stockId);
+//        }
+//        catch (NoSuchElementException ex)
+//        {
+//            try
+//            {
+//                user = getUserWithLowestDailyAssignedClaimsByCountryAndDate(country, date);
+//            }
+//            catch (NoSuchElementException e)
+//            {
+//                user = getUserWithLowestDailyAssignedTicketsByCountryAndDate(country, date);
+//            }
+//        }
+//
+//        return toDto(user);
+//    }
+
+
 
 
 

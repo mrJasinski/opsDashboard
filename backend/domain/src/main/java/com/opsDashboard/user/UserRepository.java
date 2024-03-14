@@ -2,6 +2,7 @@ package com.opsDashboard.user;
 
 import com.opsDashboard.utils.Country;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,7 +11,6 @@ interface UserRepository
     User save(User toSave);
 
     List<User> findAll();
-//    List<User> findAvailableByCountry(Country country);
 
     Optional<Integer> findIdByEmail(String email);
 
@@ -18,5 +18,12 @@ interface UserRepository
 
     Optional<User> findByEmail(String email);
     Optional<User> findAvailableByCountryAndStockId(Country country, String stockId);
-//    Optional<User> findAvailableByCountryWithLowestClaimsCountByDate(Country country, LocalDate date);
+    Optional<User> findAvailableWithLowestDailyAssignedClaimByCountryAndDate(Country country, LocalDate assignDate);
+
+//    TODO test
+    Integer findLowest(LocalDate assignDate);
+
+    List<User> findAvailableByCountryAndRoleType(Country country, User.Role.Type type);
+
+
 }

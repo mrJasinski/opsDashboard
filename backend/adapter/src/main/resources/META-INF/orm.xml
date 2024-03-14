@@ -134,12 +134,32 @@
         </attributes>
     </entity>
 
-<!--    <entity class="com.opsDashboard.utils.Country" access="FIELD" >-->
-<!--        <table name="countries" />-->
-<!--        <attributes>-->
-<!--            <basic name="name" />-->
-<!--        </attributes>-->
-<!--    </entity>-->
+    <entity class="com.opsDashboard.merchant.Merchant" access="FIELD" >
+        <table name="merchants" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="country">
+                <enumerated>STRING</enumerated>
+            </basic>
+            <basic name="email" />
+            <basic name="name" />
+            <basic name="address" />
+            <basic name="phone" />
+        </attributes>
+    </entity>
+
+<!--    class Merchant
+{
+    private int id;
+    private Country country;
+    private String email;
+    private String name;
+    private String address;
+    private String phone;
+}-->
+
 
     <embeddable class="com.opsDashboard.vo.UserSource" access="FIELD">
         <attributes>
