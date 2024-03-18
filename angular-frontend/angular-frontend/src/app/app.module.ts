@@ -15,6 +15,7 @@ import { WorkTimeComponent } from './timer/timer.component';
 import { AuthInterceptorService } from './modules/auth/auth-interceptor.service';
 import { AuthGuard } from './modules/auth/auth.guard';
 import { ClaimComponent } from './modules/claim/claim.component';
+import { SAComponent } from './modules/sa/sa.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   , { path: 'users', component: UserComponent }
   , { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
   , {path: 'claims', component: ClaimComponent, canActivate: [AuthGuard]}
+  , {path: 'pendingSpecialAccess', component: SAComponent, canActivate: [AuthGuard]}
 ]; 
 
 @NgModule({
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
     , DashboardComponent
     , WorkTimeComponent
     , AuthComponent
+    , SAComponent
   ],
   imports: [
     BrowserModule

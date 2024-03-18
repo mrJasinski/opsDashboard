@@ -31,7 +31,7 @@ class DashboardService
 
         var claimsCount = this.claimService.getClaimCountByCountriesAndStatuses(role.getCountriesSet(), role.getClaimStatusesSet());
         var sACount = this.sAService.getSACountByCountriesAndStatuses(role.getCountriesSet(), role.getSAStatusesSet());
-        var fRCount = this.fRService.getFRCountByCountriesAndStatuses(role.getCountries(), role.getFRStatuses());
+        var fRCount = this.fRService.getFRCountByCountriesAndStatuses(role.getCountriesSet(), role.getFRStatusesSet());
 
         return new Dashboard(claimsCount, sACount, fRCount);
     }

@@ -39,8 +39,12 @@ public class UserService
 
     private RoleDTO toDto(final User.Role role)
     {
-        return new RoleDTO(role.getType().name(), role.unwrapCountries(role.getCountries()));
-//        return new RoleDTO(role.getType().name(), role.getCountries(), role.getSaStatuses());
+        return new RoleDTO(
+                role.getType().name()
+                , role.unwrapCountries(role.getCountries())
+                , role.unwrapClaimStatuses(role.getClaimStatuses())
+                , role.unwrapSAStatuses(role.getSAStatuses())
+                , role.unwrapFRStatuses(role.getFRStatuses()));
     }
 
     private UserDTO toDto(final User user)
@@ -59,24 +63,30 @@ public class UserService
         return toDto(getUserByEmail(email));
     }
 
-    void startWorkday(final String email, final WorkLocation location)
+    int startWorkday(final String email, final WorkLocation location)
     {
         var user = getUserByEmail(email);
 
-        if (user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().isEmpty())
+        try
+        {
+            var workday = user.getWorkDayByDate(LocalDate.now());
+            user.restartWorkday(workday, LocalTime.now());
+        }
+        catch (NoSuchElementException ex)
+        {
             user.addWorkday(location, LocalDate.now(), LocalTime.now());
-
-        if (!user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().isEmpty())
-            user.restartWorkday(LocalDate.now(), LocalTime.now());
+        }
 
         this.userRepo.save(user);
+
+        return user.getWorkDayByDate(LocalDate.now()).getWorkTimeMins();
     }
 
     void stopWorkday(final String email)
     {
         var user = getUserByEmail(email);
 
-        var workday = user.getWorkdays().stream().filter(w -> (w.getWorkday()).equals(LocalDate.now())).toList().get(0);
+        var workday = user.getWorkDayByDate(LocalDate.now());
 
         var startTime = workday.getStartTime();
 

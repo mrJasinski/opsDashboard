@@ -1,5 +1,7 @@
 package com.opsDashboard.user;
 
+import com.opsDashboard.claim.ClaimStatus;
+import com.opsDashboard.full.FRStatus;
 import com.opsDashboard.specialAccess.SAStatus;
 import com.opsDashboard.utils.Country;
 import com.opsDashboard.utils.Utils;
@@ -26,18 +28,20 @@ class UserInitializer implements ApplicationListener<ContextRefreshedEvent>
     public void onApplicationEvent(final ContextRefreshedEvent event)
     {
         var countries = Set.of(Country.EE, Country.HR);
+        var claimStatuses = Set.of(ClaimStatus.WAITING_FOR_DM_DECISION, ClaimStatus.TO_BE_SEND);
+        var sAStatuses = Set.of(SAStatus.HQ_REJECTED, SAStatus.WAITING_FOR_LOCAL_APPROVAL);
+        var fRStatuses = Set.of(FRStatus.TO_BE_SEND);
 
        this.userRepo.save(new User(
                "dm_cee@example.com"
                , this.encoder.encode("12345")
-               , new User.Role(User.Role.Type.DM_CEE , countries)
+               , new User.Role(User.Role.Type.DECISION_MAKER , countries, claimStatuses, sAStatuses, fRStatuses)
                , true));
-//               , new User.Role(User.Role.Type.DM_CEE , Utils.ceeWithoutPL, Set.of(SAStatus.WAITING_FOR_LOCAL_APPROVAL, SAStatus.HQ_REJECTED))));
 
         this.userRepo.save(new User(
                 "dm_ee@example.com"
                 , this.encoder.encode("12345")
-                , new User.Role(User.Role.Type.DM_PL , Set.of(Country.EE))
+                , new User.Role(User.Role.Type.DECISION_MAKER , Set.of(Country.EE))
                 , true));
     }
 }

@@ -11,8 +11,11 @@ interface SpecialAccessRepository
     SpecialAccess save(SpecialAccess toSave);
 
     List<SpecialAccess> findAll();
+    List<SpecialAccess> findByCountriesAndStatuses(Set<Country> countries, Set<SAStatus> statuses);
 
     Optional<SpecialAccess> findByStockId(String stockId);
 
-    Optional<Integer> findCountByCountriesAndStatuses(Set<Country> countries, Set<SAStatus> sAStatuses);
+    Optional<Integer> findCountByCountriesAndStatuses(Set<Country> countries, Set<SAStatus> statuses);
+
+
 }

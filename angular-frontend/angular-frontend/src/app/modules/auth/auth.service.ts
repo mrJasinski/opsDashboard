@@ -17,6 +17,7 @@ export class AuthService
 {
     user = new BehaviorSubject<User>(null);
     token = new BehaviorSubject<Token>(null);
+    minsLeft : number;
 
     constructor(private http: HttpClient, private router: Router)
     {
@@ -34,17 +35,23 @@ export class AuthService
 
     signIn(email: string, password: string, location: string)
     {
-        return this.http.post(
+        return this.http.post<User>(
             AppConstants.APP_URL + AppConstants.AUTH_API_URL, 
             { 
                 email : email
                 , password : password
                 , location : location
-            }
-            , {responseType: 'text'})
+            })
              .pipe(tap(resData => 
                 {
-                    const tokenValue = new Token(resData);
+                    console.log(resData.token);
+
+                    const user = new User(resData.email, resData.token, resData.minutesLeft);
+
+                    this.minsLeft = user.minutesLeft;
+                     
+                    const tokenValue = new Token(user.token);
+
                     this.token.next(tokenValue);
 
                     localStorage.setItem('tokenData', JSON.stringify(tokenValue));
@@ -65,15 +72,15 @@ export class AuthService
 
     signOut()
     {
+        this.http.get(AppConstants.APP_URL + AppConstants.WORKDAY_END_URL).subscribe();
+        
         this.token.next(null);
         localStorage.removeItem('tokenData');
         this.router.navigate(['/authenticate']);
-
-        return this.http.get(AppConstants.APP_URL + AppConstants.WORKDAY_END_URL);
     }
 
     getMins()
     {
-        return 20 * 60;
+        return this.minsLeft * 60;
     }
 }

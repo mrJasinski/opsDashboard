@@ -5,7 +5,7 @@ export const  AppConstants = {
     , REGISTER_API_URL : "/register"
     , DASHBOARD_URL : "/dashboard"
     , FR_URL : "/fullRefunds"
-    , SA_URL : "/pendingSpecialAccess"
+    , PENDING_SA_URL : "/pendingSpecialAccess"
     , WORKDAY_END_URL : "/stopWorkday"
     , CLAIMS_API_URL : "/claims"
 }

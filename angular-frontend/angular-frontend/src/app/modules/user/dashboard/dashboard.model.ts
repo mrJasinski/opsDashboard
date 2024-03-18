@@ -1,9 +1,13 @@
 export class Dashboard
 {
-    text: string;
+    pendingClaimCount: number;
+    pendingSACount: number;
+    pendingFRCount: number;
 
-    constructor(text?: string)
+    constructor(pendingClaimCount: number, pendingSACount: number, pendingFRCount: number)
     {
-        this.text = text;
+        this.pendingClaimCount = pendingClaimCount;
+        this.pendingSACount = pendingSACount;
+        this.pendingFRCount = pendingFRCount;
     }
 }

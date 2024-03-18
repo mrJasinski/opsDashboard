@@ -56,22 +56,9 @@
                 <enumerated>STRING</enumerated>
             </basic>
             <basic name="countries" />
-<!--            <one-to-many name="countries">-->
-<!--                <cascade>-->
-<!--                    <cascade-all/>-->
-<!--                </cascade>-->
-<!--            </one-to-many>-->
-<!--            <one-to-many name="saStatuses">-->
-<!--                <cascade>-->
-<!--                    <cascade-all/>-->
-<!--                </cascade>-->
-<!--            </one-to-many>-->
-<!--            <basic name="countries" >-->
-<!--                   <enumerated>STRING</enumerated>-->
-<!--            </basic>-->
-<!--            <basic name="saStatuses" >-->
-<!--                <enumerated>STRING</enumerated>-->
-<!--            </basic>-->
+            <basic name="claimStatuses" />
+            <basic name="sAStatuses" />
+            <basic name="fRStatuses" />
         </attributes>
     </entity>
 
@@ -150,16 +137,19 @@
         </attributes>
     </entity>
 
-<!--    class Merchant
-{
-    private int id;
-    private Country country;
-    private String email;
-    private String name;
-    private String address;
-    private String phone;
-}-->
-
+    <entity class="com.opsDashboard.full.FullRefund" access="FIELD" >
+        <table name="full_refunds" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="link" />
+            <basic name="status">
+                <enumerated>STRING</enumerated>
+            </basic>
+            <embedded name="vehicle" />
+        </attributes>
+    </entity>
 
     <embeddable class="com.opsDashboard.vo.UserSource" access="FIELD">
         <attributes>

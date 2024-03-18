@@ -10,13 +10,19 @@
               <a routerLink="/authenticate">Sign-in</a> | 
           </li>
           <li class="d-inline" >
-              <a routerLink="/users">Users</a> | 
+              <a routerLink="/users">Users</a> || 
           </li>
           <li class="d-inline" >
-            <a routerLink="/dashboard">dashboard</a> | 
+            <a routerLink="/dashboard">dashboard</a> || 
           </li>
           <li class="d-inline" *ngIf="isAuthenticated">
-            <a routerLink="/claims">claims</a>
+            <a routerLink="/claims">claims</a> || 
+          </li>
+          <li class="d-inline" *ngIf="isAuthenticated">
+            <a routerLink="/specialAccesses">Special Accesses</a> || 
+          </li>
+          <li class="d-inline" *ngIf="isAuthenticated">
+            <a routerLink="/fullRefunds">Full Refunds</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -27,6 +33,9 @@
             <worktime></worktime>
           </li>
         </ul>
+        <div>
+          KPI
+        </div>
       </div>
     </div>
 </nav>

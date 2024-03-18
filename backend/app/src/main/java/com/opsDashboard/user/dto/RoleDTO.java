@@ -1,6 +1,7 @@
 package com.opsDashboard.user.dto;
 
 import com.opsDashboard.claim.ClaimStatus;
+import com.opsDashboard.full.FRStatus;
 import com.opsDashboard.specialAccess.SAStatus;
 import com.opsDashboard.utils.Country;
 
@@ -10,13 +11,15 @@ public class RoleDTO
 {
     private String type;
     private Set<Country> countries;
-    private Set<SAStatus> saStatuses;
     private Set<ClaimStatus> claimStatuses;
+    private Set<SAStatus> sAStatuses;
+    private Set<FRStatus> fRStatuses;
 
-    RoleDTO(final Set<Country> countries, final Set<SAStatus> saStatuses)
+
+    RoleDTO(final Set<Country> countries, final Set<SAStatus> sAStatuses)
     {
         this.countries = countries;
-        this.saStatuses = saStatuses;
+        this.sAStatuses = sAStatuses;
     }
 
     public RoleDTO(final String type, final Set<Country> countries)
@@ -25,10 +28,22 @@ public class RoleDTO
         this.countries = countries;
     }
 
-    RoleDTO(final String type, final Set<Country> countries, final Set<SAStatus> saStatuses)
+    RoleDTO(final String type, final Set<Country> countries, final Set<SAStatus> sAStatuses)
     {
-        this(countries, saStatuses);
+        this(countries, sAStatuses);
         this.type = type;
+    }
+
+    public RoleDTO(
+            final String type
+            , final Set<Country> countries
+            , final Set<ClaimStatus> claimStatuses
+            , final Set<SAStatus> sAStatuses
+            , final Set<FRStatus> fRStatuses)
+    {
+        this(type, countries, sAStatuses);
+        this.claimStatuses = claimStatuses;
+        this.fRStatuses = fRStatuses;
     }
 
     public String getType()
@@ -41,13 +56,18 @@ public class RoleDTO
         return this.countries;
     }
 
-    public Set<SAStatus> getSaStatuses()
+    public Set<SAStatus> getSAStatuses()
     {
-        return this.saStatuses;
+        return this.sAStatuses;
     }
 
     public Set<ClaimStatus> getClaimStatuses()
     {
         return this.claimStatuses;
+    }
+
+    public Set<FRStatus> getFRStatuses()
+    {
+        return this.fRStatuses;
     }
 }

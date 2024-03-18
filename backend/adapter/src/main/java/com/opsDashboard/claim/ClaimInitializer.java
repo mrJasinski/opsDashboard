@@ -24,7 +24,7 @@ class ClaimInitializer implements ApplicationListener<ContextRefreshedEvent>
         this.claimRepo.save(new Claim(
                 1
                 , "link"
-                , ClaimStatus.WAITING_FOR_CE_DECISION
+                , ClaimStatus.WAITING_FOR_DM_DECISION
                 , new VehicleSource("NE12345")
                 , LocalDate.now(), new UserSource(1)));
 

@@ -8,6 +8,7 @@ import com.opsDashboard.utils.Country;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 class User
@@ -82,11 +83,22 @@ class User
         this.workdays.add(new Workday(date, startTime, location));
     }
 
-    void restartWorkday(final LocalDate date, final LocalTime restartTime)
+    void restartWorkday(final Workday workday, final LocalTime restartTime)
     {
-        var workday = this.workdays.stream().filter(w -> (w.workday).equals(date)).toList().get(0);
-
         workday.setRestartTime(restartTime);
+    }
+
+    Workday getWorkDayByDate(final LocalDate date)
+    {
+        var days = this.workdays
+                .stream()
+                .filter(w -> (w.getWorkday()).equals(date))
+                .toList();
+
+        if (days.isEmpty())
+            throw new NoSuchElementException("Workday for given day not found!");
+
+        return days.get(0);
     }
 
     static class Workday
@@ -175,12 +187,18 @@ class User
             this.countries = wrapCountries(countries);
         }
 
-//        Role(final Type type, final Set<Country> countries, final Set<SAStatus> saStatuses)
-//        {
-//            this.type = type;
-//            this.countries = countries;
-//            this.saStatuses = saStatuses;
-//        }
+        Role(final Type type
+                , final Set<Country> countries
+                , final Set<ClaimStatus> claimStatuses
+                , final Set<SAStatus> sAStatuses
+                , final Set<FRStatus> fRStatuses)
+        {
+            this.type = type;
+            this.countries = wrapCountries(countries);
+            this.claimStatuses = wrapClaimStatuses(claimStatuses);
+            this.sAStatuses = wrapSAStatuses(sAStatuses);
+            this.fRStatuses = wrapFRStatuses(fRStatuses);
+        }
 
         String wrapCountries(Set<Country> countries)
         {

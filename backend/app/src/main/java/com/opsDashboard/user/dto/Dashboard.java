@@ -2,20 +2,20 @@ package com.opsDashboard.user.dto;
 
 public class Dashboard
 {
-    private int pendingClaimsCount;
+    private int pendingClaimCount;
     private int pendingSACount;
     private int pendingFRCount;
 
-    public Dashboard(final int pendingClaimsCount, final int pendingSACount, final int pendingFRCount)
+    public Dashboard(final int pendingClaimCount, final int pendingSACount, final int pendingFRCount)
     {
-        this.pendingClaimsCount = pendingClaimsCount;
+        this.pendingClaimCount = pendingClaimCount;
         this.pendingSACount = pendingSACount;
         this.pendingFRCount = pendingFRCount;
     }
 
-    public int getPendingClaimsCount()
+    public int getPendingClaimCount()
     {
-        return this.pendingClaimsCount;
+        return this.pendingClaimCount;
     }
 
     public int getPendingSACount()

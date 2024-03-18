@@ -27,7 +27,13 @@ class Claim
         this.vehicle = vehicle;
     }
 
-    Claim(final int claimNumber, final String link, final ClaimStatus status, final VehicleSource vehicle, final LocalDate assignedDate, final UserSource assignedAgent)
+    Claim(
+            final int claimNumber
+            , final String link
+            , final ClaimStatus status
+            , final VehicleSource vehicle
+            , final LocalDate assignedDate
+            , final UserSource assignedAgent)
     {
         this.claimNumber = claimNumber;
         this.link = link;

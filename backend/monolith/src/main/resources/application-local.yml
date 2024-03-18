@@ -3,9 +3,10 @@ spring:
     enabled: true
     path: '/console'
   datasource:
-#    url: 'jdbc:h2:mem:testDb'
-    url: 'jdbc:mysql://localhost:3306/testOps'
-    username: 'root'
+    url: 'jdbc:h2:mem:testDb'
+#    url: 'jdbc:mysql://localhost:3306/testOps'
+#    username: 'root'
   jpa:
     hibernate:
       ddl-auto: create-drop
+

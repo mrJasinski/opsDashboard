@@ -24,12 +24,7 @@ public class SpecialAccessService
     {
         var role = this.userService.getRoleByUserIdAsDto(userId);
 
-        var specials = this.specialAccessRepo.findAll();
-
-        return specials
-                .stream()
-                .filter(s -> (role.getSaStatuses()).contains(s.getStatus()) && (role.getCountries()).contains(s.getCountry()))
-                .toList();
+        return this.specialAccessRepo.findByCountriesAndStatuses(role.getCountries(), role.getSAStatuses());
     }
 
     SpecialAccess getSpecialAccessByStockId(final String stockId)

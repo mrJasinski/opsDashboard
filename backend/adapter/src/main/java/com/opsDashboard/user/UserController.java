@@ -3,6 +3,7 @@ package com.opsDashboard.user;
 import com.opsDashboard.security.JwtService;
 import com.opsDashboard.user.dto.Dashboard;
 import com.opsDashboard.user.dto.UserDTO;
+import com.opsDashboard.user.dto.UserLoggedDTO;
 import com.opsDashboard.utils.Country;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
@@ -56,9 +57,11 @@ class UserController
         if (!userDetails.isAuthenticated())
             throw new UsernameNotFoundException("Invalid user credentials!");
 
-        this.userService.startWorkday(user.getEmail(), user.getLocation());
+        var timeLeft = this.userService.startWorkday(user.getEmail(), user.getLocation());
 
-        return ResponseEntity.ok(this.jwtService.generateToken(user.getEmail()));
+        var logged = new UserLoggedDTO(user.getEmail(), this.jwtService.generateToken(user.getEmail()), timeLeft);
+
+        return ResponseEntity.ok(logged);
     }
 
     @GetMapping("/users")
@@ -76,6 +79,9 @@ class UserController
     @GetMapping("/stopWorkday")
     ResponseEntity<?> stopWorkday(HttpServletRequest request)
     {
+//        TODO test
+        System.out.println("stop");
+
         this.userService.stopWorkday(this.jwtService.getUserEmail(request));
 
         return ResponseEntity.ok("Workday stopped!");

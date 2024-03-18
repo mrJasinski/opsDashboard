@@ -8,7 +8,7 @@ public class MerchantSource
     {
     }
 
-    MerchantSource(final int id)
+    public MerchantSource(final int id)
     {
         this.id = id;
     }
