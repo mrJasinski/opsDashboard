@@ -2,6 +2,7 @@ package com.opsDashboard.specialAccess;
 
 import com.opsDashboard.user.UserService;
 import com.opsDashboard.utils.Country;
+import com.opsDashboard.utils.Utils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,5 +46,22 @@ public class SpecialAccessService
     {
         return this.specialAccessRepo.findCountByCountriesAndStatuses(countries, sAStatuses)
                 .orElse(0);
+    }
+
+    List<SpecialAccess> getSAByUserIdAndFilter(final int userId, final SAFilter filter)
+    {
+        var role = this.userService.getRoleByUserIdAsDto(userId);
+
+//        treated as default filter - PENDING
+        var statuses = role.getSAStatuses();
+
+        switch (filter)
+        {
+            case ONGOING -> statuses = Utils.ongoingSAStatuses;
+            case ALL -> statuses = Set.of(SAStatus.values());
+            case RESOLVED -> statuses = Set.of(SAStatus.GRANTED, SAStatus.LOCAL_REJECTED);
+        }
+
+        return this.specialAccessRepo.findByCountriesAndStatuses(role.getCountries(), statuses);
     }
 }

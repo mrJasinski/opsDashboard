@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from './dashboard.service';
 import { Dashboard } from './dashboard.model';
+import { SAService } from '../../sa/sa.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,7 @@ export class DashboardComponent implements OnInit {
   // fullRefunds = new Array();
   
 
-  constructor (private dashboardService: DashboardService) {}
+  constructor (private dashboardService: DashboardService, private saService: SAService) {}
 
   ngOnInit() 
   {
@@ -23,6 +24,11 @@ export class DashboardComponent implements OnInit {
     //     { this.fullRefunds = <any> responseData.body}
     //   );
 
+  }
+
+  onSetFilter(filter : string)
+  {
+      this.saService.filter = filter;
   }
 
   // onApproveSA(isApproved : boolean, stockId : string)

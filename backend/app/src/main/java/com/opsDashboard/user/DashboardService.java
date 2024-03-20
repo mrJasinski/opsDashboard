@@ -4,6 +4,7 @@ import com.opsDashboard.claim.ClaimService;
 import com.opsDashboard.full.FullRefundService;
 import com.opsDashboard.specialAccess.SpecialAccessService;
 import com.opsDashboard.user.dto.Dashboard;
+import com.opsDashboard.utils.Utils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -30,9 +31,10 @@ class DashboardService
         var role = this.userService.getRoleByUserId(userId);
 
         var claimsCount = this.claimService.getClaimCountByCountriesAndStatuses(role.getCountriesSet(), role.getClaimStatusesSet());
-        var sACount = this.sAService.getSACountByCountriesAndStatuses(role.getCountriesSet(), role.getSAStatusesSet());
+        var pendingSACount = this.sAService.getSACountByCountriesAndStatuses(role.getCountriesSet(), role.getSAStatusesSet());
+        var ongoingSACount = this.sAService.getSACountByCountriesAndStatuses(role.getCountriesSet(), Utils.ongoingSAStatuses);
         var fRCount = this.fRService.getFRCountByCountriesAndStatuses(role.getCountriesSet(), role.getFRStatusesSet());
 
-        return new Dashboard(claimsCount, sACount, fRCount);
+        return new Dashboard(claimsCount, pendingSACount, ongoingSACount, fRCount);
     }
 }

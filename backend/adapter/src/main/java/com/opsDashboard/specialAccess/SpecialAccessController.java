@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 class SpecialAccessController
 {
     private final SpecialAccessService sAService;
@@ -26,8 +25,20 @@ class SpecialAccessController
         return ResponseEntity.ok(specials);
     }
 
+    @GetMapping(value = "/specialAccess", params = {"filter"})
+    ResponseEntity<?> getSpecialAccess(HttpServletRequest request, @RequestParam(name = "filter") SAFilter filter)
+    {
+//        type has options - pending/ongoing/all/resolved
+        var specials = this.sAService.getSAByUserIdAndFilter(this.jwtService.getUserIdFromToken(request), filter);
+
+        return ResponseEntity.ok(specials);
+    }
+
     @GetMapping(value = "/SAStatusChange", params = {"isApproved", "stockId"} )
-    ResponseEntity<?> changeSAStatus(@RequestParam(name = "isApproved") boolean isApproved, @RequestParam(name = "stockId") String stockId, HttpServletRequest request)
+    ResponseEntity<?> changeSAStatus(
+            @RequestParam(name = "isApproved") boolean isApproved
+            , @RequestParam(name = "stockId") String stockId
+            , HttpServletRequest request)
     {
         this.sAService.changeSAStatusByStockId(stockId, isApproved);
 

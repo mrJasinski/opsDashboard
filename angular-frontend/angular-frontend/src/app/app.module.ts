@@ -24,6 +24,7 @@ const appRoutes: Routes = [
   , { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
   , {path: 'claims', component: ClaimComponent, canActivate: [AuthGuard]}
   , {path: 'pendingSpecialAccess', component: SAComponent, canActivate: [AuthGuard]}
+  , {path: 'specialAccess', component: SAComponent, canActivate: [AuthGuard]}
 ]; 
 
 @NgModule({

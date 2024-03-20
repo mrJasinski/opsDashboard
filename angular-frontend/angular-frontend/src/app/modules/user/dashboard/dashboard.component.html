@@ -4,8 +4,9 @@
         Claims: open: xx // Pending: {{dash.pendingClaimCount}}
       </p>
       <p>
-        Special Accesses : ongoing: xx //
-        <a routerLink="/pendingSpecialAccess">Pending: {{dash.pendingSACount}}</a>
+        Special Accesses : 
+        <a routerLink="/specialAccess" (click)="onSetFilter('ONGOING')" >ongoing: {{dash.ongoingSACount}}</a>  // 
+        <a routerLink="/specialAccess" (click)="onSetFilter('PENDING')" >Pending: {{dash.pendingSACount}}</a>
       </p>  
       <p>
         Full Refunds: ongoing: xx // pending: {{dash.pendingFRCount}}

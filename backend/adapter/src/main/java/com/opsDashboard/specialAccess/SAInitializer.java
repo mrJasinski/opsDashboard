@@ -31,7 +31,7 @@ class SAInitializer implements ApplicationListener<ContextRefreshedEvent>
                 , SAStatus.WAITING_FOR_LOCAL_APPROVAL));
 
         this.specialAccessRepo.save(new SpecialAccess(
-                Country.RS
+                Country.HR
                 , "OM15379"
                 , "link"
                 , SpecialAccess.Reason.MISSING_DOCS

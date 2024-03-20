@@ -6,6 +6,8 @@ export const  AppConstants = {
     , DASHBOARD_URL : "/dashboard"
     , FR_URL : "/fullRefunds"
     , PENDING_SA_URL : "/pendingSpecialAccess"
+    , ONGOING_SA_URL : "/ongoingSpecialAccess"
+    , SA_URL : "/specialAccess"
     , WORKDAY_END_URL : "/stopWorkday"
     , CLAIMS_API_URL : "/claims"
 }
