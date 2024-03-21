@@ -47,6 +47,9 @@ public class JwtService
     }
     private Claims extractAllClaims(String token)
     {
+//        TODO test
+        System.out.println("token " + token);
+
         return Jwts
                 .parserBuilder()
                 .setSigningKey(getSignKey())

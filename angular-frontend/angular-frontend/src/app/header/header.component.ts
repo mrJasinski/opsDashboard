@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit, OnDestroy
 {
     isAuthenticated = false;
     private tokenSub: Subscription;
+    searchedStockId: string;
 
     constructor(private authService: AuthService)
     {
@@ -32,5 +33,10 @@ export class HeaderComponent implements OnInit, OnDestroy
     onLogout()
     {
         this.authService.signOut();
+    }
+
+    onSearch(searchedStockId : string)
+    {
+        // TODO przejście do wyszukanego pojazdu lub błąd
     }
 }

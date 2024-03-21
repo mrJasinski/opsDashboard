@@ -5,12 +5,15 @@
       </p>
       <p>
         Special Accesses : 
-        <a routerLink="/specialAccess" (click)="onSetFilter('ONGOING')" >ongoing: {{dash.ongoingSACount}}</a>  // 
+        <a routerLink="/specialAccess" (click)="onSetFilter('ONGOING')" >Ongoing: {{dash.ongoingSACount}}</a>  // 
         <a routerLink="/specialAccess" (click)="onSetFilter('PENDING')" >Pending: {{dash.pendingSACount}}</a>
       </p>  
       <p>
         Full Refunds: ongoing: xx // pending: {{dash.pendingFRCount}}
       </p>  
+    </div>
+    <div style="font-size: medium;">
+      KPI
     </div>
 
     <!-- <li class="d-inline" routerLinkActive="active" *ngIf="!isAuthenticated">

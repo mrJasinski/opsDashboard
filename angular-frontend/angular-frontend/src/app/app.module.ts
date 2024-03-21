@@ -16,6 +16,7 @@ import { AuthInterceptorService } from './modules/auth/auth-interceptor.service'
 import { AuthGuard } from './modules/auth/auth.guard';
 import { ClaimComponent } from './modules/claim/claim.component';
 import { SAComponent } from './modules/sa/sa.component';
+import { VehicleComponent } from './modules/vehicle/vehicle.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   , {path: 'claims', component: ClaimComponent, canActivate: [AuthGuard]}
   , {path: 'pendingSpecialAccess', component: SAComponent, canActivate: [AuthGuard]}
   , {path: 'specialAccess', component: SAComponent, canActivate: [AuthGuard]}
+  , {path : 'vehicle', component: VehicleComponent, canActivate: [AuthGuard]}
 ]; 
 
 @NgModule({
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     , WorkTimeComponent
     , AuthComponent
     , SAComponent
+    , VehicleComponent
   ],
   imports: [
     BrowserModule

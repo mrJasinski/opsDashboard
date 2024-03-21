@@ -1,6 +1,8 @@
 package com.opsDashboard.specialAccess;
 
 import com.opsDashboard.utils.Country;
+import com.opsDashboard.utils.TransportMethod;
+import com.opsDashboard.vo.VehicleSource;
 
 import java.time.LocalDate;
 
@@ -8,9 +10,9 @@ class SpecialAccess
 {
     private int id;
     private Country country;
-    private String stockId;
+    private VehicleSource vehicle;
     private String link;
-    private Reason reason;
+    private SAReason reason;
     private String explanation;
     private TransportMethod transportMethod;
     private LocalDate pickupDate;
@@ -20,11 +22,11 @@ class SpecialAccess
     {
     }
 
-    SpecialAccess(final Country country, final String stockId, final String link, final Reason reason, final String explanation
+    SpecialAccess(final Country country, final VehicleSource vehicle, final String link, final SAReason reason, final String explanation
             , final TransportMethod transportMethod, final LocalDate pickupDate, final SAStatus status)
     {
         this.country = country;
-        this.stockId = stockId;
+        this.vehicle = vehicle;
         this.link = link;
         this.reason = reason;
         this.explanation = explanation;
@@ -33,10 +35,10 @@ class SpecialAccess
         this.status = status;
     }
 
-    SpecialAccess(final int id, final Country country, final String stockId, final String link, final Reason reason, final String explanation
+    SpecialAccess(final int id, final Country country, final VehicleSource vehicle, final String link, final SAReason reason, final String explanation
             , final TransportMethod transportMethod, final LocalDate pickupDate, final SAStatus status)
     {
-        this(country, stockId, link, reason, explanation, transportMethod, pickupDate, status);
+        this(country, vehicle, link, reason, explanation, transportMethod, pickupDate, status);
         this.id = id;
     }
 
@@ -80,9 +82,9 @@ class SpecialAccess
         return this.country;
     }
 
-    public String getStockId()
+    public VehicleSource getVehicle()
     {
-        return this.stockId;
+        return this.vehicle;
     }
 
     public String getLink()
@@ -90,7 +92,7 @@ class SpecialAccess
         return this.link;
     }
 
-    public Reason getReason()
+    public SAReason getReason()
     {
         return this.reason;
     }
@@ -115,20 +117,5 @@ class SpecialAccess
         return this.status;
     }
 
-    enum TransportMethod
-    {
-        PICK_UP
-        , TRANSPORT
-        , NOT_PICKED_UP
-    }
-
-    enum Reason
-    {
-        ADMIN_PROBLEM
-        , LATE_PU_DATE_UPDATE
-        , MILEAGE_MANIPULATION
-        , NRC
-        , MISSING_DOCS
-    }
 }
 

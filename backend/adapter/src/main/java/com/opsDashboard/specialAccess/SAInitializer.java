@@ -1,6 +1,8 @@
 package com.opsDashboard.specialAccess;
 
 import com.opsDashboard.utils.Country;
+import com.opsDashboard.utils.TransportMethod;
+import com.opsDashboard.vo.VehicleSource;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -22,21 +24,21 @@ class SAInitializer implements ApplicationListener<ContextRefreshedEvent>
     {
         this.specialAccessRepo.save(new SpecialAccess(
                 Country.EE
-                , "UT28564"
+                , new VehicleSource("UT28564")
                 , "link"
-                , SpecialAccess.Reason.ADMIN_PROBLEM
+                , SAReason.ADMIN_PROBLEM
                 , "late PU date update"
-                , SpecialAccess.TransportMethod.TRANSPORT
+                , TransportMethod.TRANSPORT
                 , LocalDate.now()
                 , SAStatus.WAITING_FOR_LOCAL_APPROVAL));
 
         this.specialAccessRepo.save(new SpecialAccess(
                 Country.HR
-                , "OM15379"
+                , new VehicleSource("OM15379")
                 , "link"
-                , SpecialAccess.Reason.MISSING_DOCS
+                , SAReason.MISSING_DOCS
                 , "docs not delivered to merchant"
-                , SpecialAccess.TransportMethod.NOT_PICKED_UP
+                , TransportMethod.NOT_PICKED_UP
                 , null
                 , SAStatus.WAITING_FOR_HQ_APPROVAL));
 

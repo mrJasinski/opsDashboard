@@ -29,7 +29,7 @@ class SpecialAccessController
     ResponseEntity<?> getSpecialAccess(HttpServletRequest request, @RequestParam(name = "filter") SAFilter filter)
     {
 //        type has options - pending/ongoing/all/resolved
-        var specials = this.sAService.getSAByUserIdAndFilter(this.jwtService.getUserIdFromToken(request), filter);
+        var specials = this.sAService.getSAByUserIdAndFilterAsDto(this.jwtService.getUserIdFromToken(request), filter);
 
         return ResponseEntity.ok(specials);
     }

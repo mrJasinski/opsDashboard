@@ -2,8 +2,6 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { AppConstants } from "../../../constans/app.constans";
 import { AuthService } from "../../auth/auth.service";
-import { SAService } from "../../sa/sa.service";
-
 
 @Injectable({
     providedIn: 'root'

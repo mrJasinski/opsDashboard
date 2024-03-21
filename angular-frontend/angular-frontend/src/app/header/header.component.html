@@ -16,7 +16,7 @@
             <a routerLink="/dashboard">dashboard</a> || 
           </li>
           <li class="d-inline" *ngIf="isAuthenticated">
-            <a routerLink="/claims">claims</a> || 
+            <a routerLink="/claims">Claims</a> || 
           </li>
           <li class="d-inline" *ngIf="isAuthenticated">
             <a routerLink="/specialAccess">Special Accesses</a> || 
@@ -33,10 +33,15 @@
             <worktime></worktime>
           </li>
         </ul>
-        <div>
-          KPI
-        </div>
       </div>
+
+      <div>
+        <label for = "search">Search(stockId)</label>
+        <input name = "search" value="searchedStockId">
+        <button class="btn btn-primary" (click)="onSearch(searchedStockId)">Search</button>
+      </div>
+
+
     </div>
 </nav>
 

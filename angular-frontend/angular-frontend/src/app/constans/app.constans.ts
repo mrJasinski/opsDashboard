@@ -10,4 +10,5 @@ export const  AppConstants = {
     , SA_URL : "/specialAccess"
     , WORKDAY_END_URL : "/stopWorkday"
     , CLAIMS_API_URL : "/claims"
+    , VEHICLE_URL : "/vehicle"
 }

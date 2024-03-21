@@ -69,7 +69,6 @@
                 <generated-value strategy="IDENTITY" />
             </id>
             <basic name="country" />
-            <basic name="stockId"/>
             <basic name="link"/>
             <basic name="explanation"/>
             <basic name="transportMethod">
@@ -82,6 +81,7 @@
             <basic name="reason">
                 <enumerated>STRING</enumerated>
             </basic>
+            <embedded name="vehicle" />
         </attributes>
     </entity>
 
