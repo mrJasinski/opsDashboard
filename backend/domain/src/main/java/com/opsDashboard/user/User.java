@@ -68,6 +68,11 @@ class User
         return this.role;
     }
 
+    boolean isAvailable()
+    {
+        return this.isAvailable;
+    }
+
     public void changeAvailable()
     {
         this.isAvailable = !isAvailable;

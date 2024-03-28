@@ -1,6 +1,8 @@
 package com.opsDashboard.ticket;
 
 import com.opsDashboard.ticket.dto.TicketWriteModel;
+import com.opsDashboard.user.UserService;
+import com.opsDashboard.vo.UserSource;
 import org.springframework.stereotype.Service;
 
 import java.util.NoSuchElementException;
@@ -9,17 +11,23 @@ import java.util.NoSuchElementException;
 class TicketService
 {
     private final TicketRepository ticketRepo;
+    private final UserService userService;
 
-    TicketService(final TicketRepository ticketRepo)
+    TicketService(final TicketRepository ticketRepo, UserService userService)
     {
         this.ticketRepo = ticketRepo;
+        this.userService = userService;
     }
 
     void createTicket(final TicketWriteModel toWrite)
     {
         var number = getConsequentTicketNumber();
         var category = getCategoryByNameAndSubCategoryName(toWrite.getCategory(), toWrite.getSubCategory());
-        var agent =
+        var agents = this.userService.getAgentIdToAssignTicketToByUserIds(category.getSubCategory().getAgents().stream().map(UserSource::getId).toList());
+
+
+
+
 
         var ticket = new Ticket(
                 number
@@ -27,6 +35,7 @@ class TicketService
                 , toWrite.getTitle()
                 , category
                 , toWrite.getStockId()
+                ,
         );
 
 

@@ -4,34 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="works on logic in front and back end for special access">
-      <change afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/contact/contact.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/contact/contact.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/contact/contact.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/SqlTicketRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/dto/TicketWriteModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/TicketRepository.java" afterDir="false" />
+    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="introducing tickets module">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/constans/app.constans.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/constans/app.constans.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/header/header.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular-frontend/angular-frontend/src/app/modules/vehicle/vehicle.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SqlSpecialAccessRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/specialAccess/SqlSpecialAccessRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/specialAccess/SpecialAccessService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/specialAccess/SpecialAccessService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/dto/VehicleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/dto/VehicleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/utils/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/monolith/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +227,7 @@
       <workItem from="1711127223966" duration="7010000" />
       <workItem from="1711475086678" duration="3904000" />
       <workItem from="1711523830391" duration="6492000" />
-      <workItem from="1711618014321" duration="31000" />
+      <workItem from="1711618014321" duration="4941000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -296,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711042181160</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="introducing tickets module">
+      <option name="closed" value="true" />
+      <created>1711618090526</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711618090526</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,6 +298,7 @@
     <MESSAGE value="working on app logic" />
     <MESSAGE value="works on logic in front and back end for timer and special access view" />
     <MESSAGE value="works on logic in front and back end for special access" />
-    <option name="LAST_COMMIT_MESSAGE" value="works on logic in front and back end for special access" />
+    <MESSAGE value="introducing tickets module" />
+    <option name="LAST_COMMIT_MESSAGE" value="introducing tickets module" />
   </component>
 </project>

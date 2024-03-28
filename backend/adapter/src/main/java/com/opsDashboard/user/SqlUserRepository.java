@@ -44,6 +44,16 @@ interface SqlUserRepository extends UserRepository, JpaRepository<User, Integer>
     Integer findLowest(LocalDate assignDate);
 
     @Override
-    @Query(value = "FROM User u WHERE u.isAvailable = TRUE AND u.role.countries LIKE %:country% AND u.role.type = :type")
+    @Query(value = "FROM User u" +
+            " WHERE u.isAvailable = TRUE AND u.role.countries LIKE %:country% AND u.role.type = :type")
     List<User> findAvailableByCountryAndRoleType(Country country, User.Role.Type type);
+
+    @Override
+    @Query("FROM User u" +
+            " WHERE u.isAvailable = TRUE AND u.id IN :userIds")
+    List<User> findAvailableByIds(List<Integer> userIds);
+
+    @Override
+    @Query("FROM User u ")
+    Optional<User> findWithLowestDailyAssignedTicketsByIdsAndDate(List<Integer> userIds, LocalDate assignDate);
 }

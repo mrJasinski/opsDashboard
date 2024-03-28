@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -49,7 +50,7 @@ public class UserService
 
     private UserDTO toDto(final User user)
     {
-        return new UserDTO(user.getEmail(), user.getPassword(), toDto(user.getRole()));
+        return new UserDTO(user.getEmail(), user.getPassword(), toDto(user.getRole()), user.isAvailable());
     }
 
     User getUserByEmail(final String email)
@@ -111,6 +112,37 @@ public class UserService
     {
         return this.userRepo.findAvailableWithLowestDailyAssignedClaimByCountryAndDate(country, date)
                 .orElseThrow(() -> new NoSuchElementException("Not found!"));
+    }
+
+    public int getAgentIdToAssignTicketToByUserIds(final List<Integer> userIds)
+    {
+        var users = this.userRepo.findAvailableByIds(userIds);
+
+//        if no available users id set to zero which means no user
+        var result = 0;
+
+        if (users.size() == 1)
+        {
+            result = users.get(0).getId();
+        }
+
+        if ((users.size() > 1))
+        {
+//            get agent with lowest daily assigned tickets
+            result = getUserWithLowestDailyAssignedTicketsByIds(users.stream().map(User::getId).toList()).getId();
+
+        }
+
+
+        return result;
+    }
+
+    private User getUserWithLowestDailyAssignedTicketsByIds(final List<Integer> userIds)
+    {
+        return this.userRepo.findWithLowestDailyAssignedTicketsByIdsAndDate(userIds, LocalDate.now())
+                .orElse(
+// TODO
+                );
     }
 
 //    private User getUserWithLowestDailyAssignedTicketsByCountryAndDate(final Country country, final LocalDate date)
