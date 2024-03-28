@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from './auth.service';
 import { Router } from '@angular/router';
-import { User } from './user.model';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +32,7 @@ export class AuthComponent implements OnInit
     return;
   }
 
-  const email = form.value.email;
+  const email = form.value.email; 
   const password = form.value.password;
   const location = form.value.location;
 

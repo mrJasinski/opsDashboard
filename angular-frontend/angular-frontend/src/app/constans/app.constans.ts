@@ -11,4 +11,6 @@ export const  AppConstants = {
     , WORKDAY_END_URL : "/stopWorkday"
     , CLAIMS_API_URL : "/claims"
     , VEHICLE_URL : "/vehicle"
+    , CONTACT_URL : "/contact"
+    , CONTACT_SEND_URL : "/sendContactForm"
 }

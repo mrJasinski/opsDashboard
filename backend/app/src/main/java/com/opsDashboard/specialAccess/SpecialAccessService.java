@@ -90,7 +90,7 @@ public class SpecialAccessService
     {
         return new SpecialAccessDTO(
                 sa.getCountry()
-                , sa.getStockId()
+                , sa.getVehicle().getStockId()
                 , sa.getLink()
                 , sa.getReason()
                 , sa.getExplanation()

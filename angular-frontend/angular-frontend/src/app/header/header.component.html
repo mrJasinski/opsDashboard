@@ -22,7 +22,10 @@
             <a routerLink="/specialAccess">Special Accesses</a> || 
           </li>
           <li class="d-inline" *ngIf="isAuthenticated">
-            <a routerLink="/fullRefunds">Full Refunds</a>
+            <a routerLink="/fullRefunds">Full Refunds</a> || 
+          </li>
+          <li class="d-inline">
+            <a routerLink="/contact">Contact</a>
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
@@ -36,9 +39,9 @@
       </div>
 
       <div>
-        <label for = "search">Search(stockId)</label>
-        <input name = "search" value="searchedStockId">
-        <button class="btn btn-primary" (click)="onSearch(searchedStockId)">Search</button>
+        <label for = "search">Search(stockId)</label> 
+        <input [(ngModel)] = "searchId" type="text">
+        <button class="btn btn-primary" type="button" (click)="onSearch(searchId)">Search</button>
       </div>
 
 

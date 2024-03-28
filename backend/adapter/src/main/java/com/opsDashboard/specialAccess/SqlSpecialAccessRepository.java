@@ -22,4 +22,9 @@ interface SqlSpecialAccessRepository extends SpecialAccessRepository, JpaReposit
     @Query(value = " FROM SpecialAccess sa" +
             " WHERE sa.country IN :countries  AND sa.status IN :statuses")
     List<SpecialAccess> findByCountriesAndStatuses(Set<Country> countries, Set<SAStatus> statuses);
+
+    @Override
+    @Query(value = "FROM SpecialAccess sa " +
+            "WHERE sa.vehicle.stockId = :stockId")
+    Optional<SpecialAccess> findByStockId(String stockId);
 }

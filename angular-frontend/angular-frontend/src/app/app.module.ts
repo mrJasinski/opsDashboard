@@ -17,6 +17,7 @@ import { AuthGuard } from './modules/auth/auth.guard';
 import { ClaimComponent } from './modules/claim/claim.component';
 import { SAComponent } from './modules/sa/sa.component';
 import { VehicleComponent } from './modules/vehicle/vehicle.component';
+import { ContactComponent } from './modules/contact/contact.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }
@@ -24,9 +25,9 @@ const appRoutes: Routes = [
   , { path: 'users', component: UserComponent }
   , { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
   , {path: 'claims', component: ClaimComponent, canActivate: [AuthGuard]}
-  , {path: 'pendingSpecialAccess', component: SAComponent, canActivate: [AuthGuard]}
   , {path: 'specialAccess', component: SAComponent, canActivate: [AuthGuard]}
-  , {path : 'vehicle', component: VehicleComponent, canActivate: [AuthGuard]}
+  , {path : 'vehicle/:stockId', component: VehicleComponent, canActivate: [AuthGuard]}
+  , {path : 'contact', component: ContactComponent}
 ]; 
 
 @NgModule({

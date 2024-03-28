@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { VehicleService } from "./vehicle.service";
 import { Vehicle } from "./vehicle.model";
 
@@ -7,13 +7,18 @@ import { Vehicle } from "./vehicle.model";
     selector : 'vehicle-view'
     , templateUrl : './vehicle.component.html'
 })
-export class VehicleComponent
+export class VehicleComponent implements OnInit
 {
     vehicle : Vehicle;
 
-    constructor(vehicleService : VehicleService)
+    constructor(private vehicleService : VehicleService)
     {
         
+    }
+
+    ngOnInit(): void 
+    {
+        this.vehicleService.getVehicleByStockId(this.vehicleService.stockId).subscribe(response => {this.vehicle = <any>response.body});
     }
 }
 

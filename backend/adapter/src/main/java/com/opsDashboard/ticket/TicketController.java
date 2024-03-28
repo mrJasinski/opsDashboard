@@ -1,16 +1,21 @@
 package com.opsDashboard.ticket;
 
+import com.opsDashboard.ticket.dto.TicketWriteModel;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 class TicketController
 {
+    private final TicketService ticketService;
+
+    TicketController(final TicketService ticketService)
+    {
+        this.ticketService = ticketService;
+    }
+
     @GetMapping("/pendingTickets")
     ResponseEntity<?> getPendingTickets()
     {
@@ -20,5 +25,13 @@ class TicketController
             result.add("ticket" + i);
 
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("/sendMessage")
+    ResponseEntity<?> createTicket(@RequestBody TicketWriteModel message)
+    {
+        this.ticketService.createTicket(message);
+
+        return ResponseEntity.ok("Message successfully sent!");
     }
 }

@@ -20,10 +20,12 @@ class VehicleService
         return toDto(getVehicleByStockId(stockId));
     }
 
-    private VehicleDTO toDto(final Vehicle stockId)
+    private VehicleDTO toDto(final Vehicle vehicle)
     {
         return new VehicleDTO(
-//                TODO
+            vehicle.getStockId()
+            , vehicle.getManufacturer()
+            , vehicle.getModel()
         );
     }
 
