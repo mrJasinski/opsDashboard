@@ -4,6 +4,7 @@ import com.opsDashboard.vo.UserSource;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 class Ticket
@@ -16,6 +17,35 @@ class Ticket
     private String stockId;
     private LocalDate assignedDate;
     private UserSource assignedAgent;
+    private List<Message> messages;
+
+    Ticket()
+    {
+    }
+
+    Ticket(
+            final int number
+            , final String creatorEmail
+            , final String title
+            , final Category category
+            , final String stockId
+            , final LocalDate assignedDate
+            , final UserSource assignedAgent
+            )
+    {
+        this.number = number;
+        this.creatorEmail = creatorEmail;
+        this.title = title;
+        this.category = category;
+        this.stockId = stockId;
+        this.assignedDate = assignedDate;
+        this.assignedAgent = assignedAgent;
+    }
+
+    void addMessage(Message message)
+    {
+        this.messages.add(message);
+    }
 
     static class Message
     {
@@ -24,7 +54,45 @@ class Ticket
         private String content;
         private String senderMail;
         private String receiverMail;
-        private Set<String> ccMails;
+        private String ccMails;
+
+        Message()
+        {
+        }
+
+        Message(final LocalDateTime timestamp
+                , final String content
+                , final String senderMail
+                , final String receiverMail
+                , final String ccMails)
+        {
+            this.timestamp = timestamp;
+            this.content = content;
+            this.senderMail = senderMail;
+            this.receiverMail = receiverMail;
+            this.ccMails = ccMails;
+        }
+
+        String wrapCcMails(Set<String> ccMails)
+        {
+            var result = new StringBuilder();
+
+            for (final String mail : ccMails)
+                result.append(mail).append(" ");
+
+            return result.toString();
+        }
+
+        Set<String> unwrapCcMails(String ccMails)
+        {
+            var mailsSplit = ccMails.split(" ");
+
+            var mails = new String[mailsSplit.length];
+
+            System.arraycopy(mailsSplit, 0, mails, 0, mailsSplit.length);
+
+            return Set.of(mails);
+        }
 
     }
 
@@ -53,7 +121,7 @@ class Ticket
         {
             private int id;
             private String name;
-            private Set<UserSource> agents;
+            private String agents;
 
             int getId()
             {
@@ -65,9 +133,31 @@ class Ticket
                 return this.name;
             }
 
-            Set<UserSource> getAgents()
+            Set<UserSource> getAgentsSet()
             {
-                return this.agents;
+                return unwrapAgents(this.agents);
+            }
+
+            String wrapAgents(Set<UserSource> agents)
+            {
+                var result = new StringBuilder();
+
+                for (final UserSource agent : agents)
+                    result.append(agent).append(" ");
+
+                return result.toString();
+            }
+
+            Set<UserSource> unwrapAgents(String agents)
+            {
+                var agentsSplit = agents.split(" ");
+
+                var sources = new UserSource[agentsSplit.length];
+
+                for (int i = 0; i < agentsSplit.length; i++)
+                    sources[i] = new UserSource(Integer.parseInt(agentsSplit[i]));
+
+                return Set.of(sources);
             }
         }
 

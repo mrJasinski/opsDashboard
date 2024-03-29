@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="introducing tickets module">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/SqlTicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/SqlTicketRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/user/SqlUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/dto/UserDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/user/UserRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -228,6 +228,8 @@
       <workItem from="1711475086678" duration="3904000" />
       <workItem from="1711523830391" duration="6492000" />
       <workItem from="1711618014321" duration="4941000" />
+      <workItem from="1711640811106" duration="36000" />
+      <workItem from="1711723234286" duration="4378000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -285,7 +287,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711618090526</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="introducing tickets module">
+      <option name="closed" value="true" />
+      <created>1711640840752</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711640840752</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

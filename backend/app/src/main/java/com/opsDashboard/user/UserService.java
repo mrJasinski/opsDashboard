@@ -3,6 +3,7 @@ package com.opsDashboard.user;
 import com.opsDashboard.user.dto.RoleDTO;
 import com.opsDashboard.user.dto.UserDTO;
 import com.opsDashboard.utils.Country;
+import com.opsDashboard.vo.UserSource;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -114,33 +115,32 @@ public class UserService
                 .orElseThrow(() -> new NoSuchElementException("Not found!"));
     }
 
-    public int getAgentIdToAssignTicketToByUserIds(final List<Integer> userIds)
+    public UserSource getAgentSourceToAssignTicketToByUserIds(final List<Integer> userIds)
     {
         var users = this.userRepo.findAvailableByIds(userIds);
 
 //        if no available users id set to zero which means no user
-        var result = 0;
+        UserSource result = null;
 
         if (users.size() == 1)
         {
-            result = users.get(0).getId();
+            result = new UserSource(users.get(0).getId());
         }
 
         if ((users.size() > 1))
         {
 //            get agent with lowest daily assigned tickets
-            result = getUserWithLowestDailyAssignedTicketsByIds(users.stream().map(User::getId).toList()).getId();
+            result = new UserSource(getUserWithLowestDailyAssignedTicketsByIds(users.stream().map(User::getId).toList()));
 
         }
-
 
         return result;
     }
 
-    private User getUserWithLowestDailyAssignedTicketsByIds(final List<Integer> userIds)
+    private Integer getUserWithLowestDailyAssignedTicketsByIds(final List<Integer> userIds)
     {
         return this.userRepo.findWithLowestDailyAssignedTicketsByIdsAndDate(userIds, LocalDate.now())
-                .orElse(
+                .orElse(0
 // TODO
                 );
     }

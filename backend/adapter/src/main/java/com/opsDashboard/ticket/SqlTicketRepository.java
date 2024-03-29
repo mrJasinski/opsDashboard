@@ -14,6 +14,9 @@ interface SqlTicketRepository extends TicketRepository, JpaRepository<Ticket, In
     Optional<Integer> findMaxTicketNumber();
 
     @Override
-    @Query("FROM Category c WHERE c.name = :category AND c.subCategory.name = :subCategory")
+    @Query(value = "SELECT *" +
+            " FROM categories" +
+            " JOIN sub_categories ON sub_categories.id = categories.sub_category_id" +
+            " WHERE categories.name = :category AND sub_categories.name = :subCategory", nativeQuery = true)
     Optional<Ticket.Category> findCategoryByNameAndSubCategoryName(String category, String subCategory);
 }

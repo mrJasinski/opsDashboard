@@ -151,6 +151,69 @@
         </attributes>
     </entity>
 
+    <entity class="com.opsDashboard.ticket.Ticket" access="FIELD" >
+        <table name="tickets" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="number" />
+            <basic name="creatorEmail" />
+            <basic name="title" />
+            <basic name="stockId" />
+            <basic name="assignedDate" />
+            <many-to-one name="category">
+                <join-column name="category_id" />
+            </many-to-one>
+            <one-to-many name="messages">
+                <join-column name="ticket_id" />
+            </one-to-many>
+            <embedded name="assignedAgent">
+                <attribute-override name="id">
+                    <column name="user_id"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.ticket.Ticket$Category" access="FIELD" >
+        <table name="categories" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="name" />
+            <many-to-one name="subCategory">
+                <join-column name="sub_category_id" />
+            </many-to-one>
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.ticket.Ticket$Category$SubCategory" access="FIELD" >
+        <table name="sub_categories" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="name" />
+            <basic name="agents" />
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.ticket.Ticket$Message" access="FIELD" >
+        <table name="messages" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="timestamp" />
+            <basic name="content" />
+            <basic name="senderMail" />
+            <basic name="receiverMail" />
+            <basic name="ccMails" />
+        </attributes>
+    </entity>
+
     <embeddable class="com.opsDashboard.vo.UserSource" access="FIELD">
         <attributes>
             <basic name="id" />

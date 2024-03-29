@@ -5,6 +5,7 @@ import com.opsDashboard.user.UserService;
 import com.opsDashboard.vo.UserSource;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.NoSuchElementException;
 
 @Service
@@ -23,7 +24,7 @@ class TicketService
     {
         var number = getConsequentTicketNumber();
         var category = getCategoryByNameAndSubCategoryName(toWrite.getCategory(), toWrite.getSubCategory());
-        var agents = this.userService.getAgentIdToAssignTicketToByUserIds(category.getSubCategory().getAgents().stream().map(UserSource::getId).toList());
+        var agent = this.userService.getAgentSourceToAssignTicketToByUserIds(category.getSubCategory().getAgentsSet().stream().map(UserSource::getId).toList());
 
 
 
@@ -35,17 +36,10 @@ class TicketService
                 , toWrite.getTitle()
                 , category
                 , toWrite.getStockId()
-                ,
+                , LocalDate.now()
+                , agent
         );
 
-
-
-//    private int number;
-//    private String creatorEmail;
-//    private String title;
-//    private Category category;
-//    private String stockId;
-//    private UserSource assignedAgent;
     }
 
     private Ticket.Category getCategoryByNameAndSubCategoryName(final String category, final String subCategory)

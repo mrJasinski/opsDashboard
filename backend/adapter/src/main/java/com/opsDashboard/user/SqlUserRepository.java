@@ -40,11 +40,15 @@ interface SqlUserRepository extends UserRepository, JpaRepository<User, Integer>
 
 
     @Override
-    @Query(value = "SELECT MIN(claimsCount) FROM (SELECT COUNT(*) AS claimsCount FROM Claim c WHERE c.assignedDate = :assignDate GROUP BY c.assignedAgent)")
+    @Query("SELECT MIN(claimsCount)" +
+            " FROM (SELECT COUNT(*) AS claimsCount" +
+                    " FROM Claim c" +
+                    " WHERE c.assignedDate = :assignDate" +
+                    " GROUP BY c.assignedAgent)")
     Integer findLowest(LocalDate assignDate);
 
     @Override
-    @Query(value = "FROM User u" +
+    @Query("FROM User u" +
             " WHERE u.isAvailable = TRUE AND u.role.countries LIKE %:country% AND u.role.type = :type")
     List<User> findAvailableByCountryAndRoleType(Country country, User.Role.Type type);
 
@@ -54,6 +58,10 @@ interface SqlUserRepository extends UserRepository, JpaRepository<User, Integer>
     List<User> findAvailableByIds(List<Integer> userIds);
 
     @Override
-    @Query("FROM User u ")
-    Optional<User> findWithLowestDailyAssignedTicketsByIdsAndDate(List<Integer> userIds, LocalDate assignDate);
+    @Query("SELECT t.assignedAgent.id" +
+            " FROM Ticket t" +
+            " WHERE t.assignedAgent.id IN :userIds AND t.assignedDate = :assignDate" +
+            " GROUP BY t.assignedAgent.id" +
+            " ORDER BY COUNT(*) LIMIT 1")
+    Optional<Integer> findWithLowestDailyAssignedTicketsByIdsAndDate(List<Integer> userIds, LocalDate assignDate);
 }
