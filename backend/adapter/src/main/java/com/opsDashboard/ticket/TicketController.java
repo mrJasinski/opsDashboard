@@ -1,6 +1,8 @@
 package com.opsDashboard.ticket;
 
+import com.opsDashboard.security.JwtService;
 import com.opsDashboard.ticket.dto.TicketWriteModel;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,10 +12,12 @@ import java.util.ArrayList;
 class TicketController
 {
     private final TicketService ticketService;
+    private final JwtService jwtService;
 
-    TicketController(final TicketService ticketService)
+    TicketController(final TicketService ticketService, JwtService jwtService)
     {
         this.ticketService = ticketService;
+        this.jwtService = jwtService;
     }
 
     @GetMapping("/pendingTickets")
@@ -26,12 +30,21 @@ class TicketController
 
         return ResponseEntity.ok(result);
     }
-
-    @PostMapping("/sendMessage")
+//TODO poprawić link w angularze
+    @PostMapping("/sendContactForm")
     ResponseEntity<?> createTicket(@RequestBody TicketWriteModel message)
     {
         this.ticketService.createTicket(message);
 
         return ResponseEntity.ok("Message successfully sent!");
+    }
+
+    @GetMapping(value = "/tickets", params = {"filter"})
+    ResponseEntity<?> getTickets(HttpServletRequest request, @RequestParam(name = "filter") TicketFilter filter)
+    {
+//        filter has options - ALL/unresponded
+        var tickets = this.ticketService.getTicketsByUserIdAndFilterAsDto(this.jwtService.getUserIdFromToken(request), filter);
+
+        return ResponseEntity.ok(tickets);
     }
 }

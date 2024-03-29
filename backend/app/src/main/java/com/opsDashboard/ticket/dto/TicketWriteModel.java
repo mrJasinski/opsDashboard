@@ -1,5 +1,7 @@
 package com.opsDashboard.ticket.dto;
 
+import java.util.Set;
+
 public class TicketWriteModel
 {
     private String creatorMail;
@@ -8,6 +10,7 @@ public class TicketWriteModel
     private String subCategory;
     private String stockId;
     private String content;
+    private Set<String> ccMails;
 
     public String getCreatorMail()
     {
@@ -37,5 +40,10 @@ public class TicketWriteModel
     public String getContent()
     {
         return this.content;
+    }
+
+    public Set<String> getCcMails()
+    {
+        return this.ccMails;
     }
 }

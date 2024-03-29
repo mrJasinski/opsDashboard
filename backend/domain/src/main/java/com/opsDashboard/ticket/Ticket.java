@@ -64,13 +64,13 @@ class Ticket
                 , final String content
                 , final String senderMail
                 , final String receiverMail
-                , final String ccMails)
+                , final Set<String> ccMails)
         {
             this.timestamp = timestamp;
             this.content = content;
             this.senderMail = senderMail;
             this.receiverMail = receiverMail;
-            this.ccMails = ccMails;
+            this.ccMails = wrapCcMails(ccMails);
         }
 
         String wrapCcMails(Set<String> ccMails)
