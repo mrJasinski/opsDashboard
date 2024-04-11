@@ -1,5 +1,6 @@
 package com.opsDashboard.vehicle;
 
+import com.opsDashboard.vo.LCSource;
 import com.opsDashboard.vo.MerchantSource;
 
 class Vehicle
@@ -9,6 +10,7 @@ class Vehicle
     private String manufacturer;
     private String model;
     private MerchantSource merchant;
+    private LCSource location;
 
     Vehicle()
     {
@@ -48,5 +50,10 @@ class Vehicle
     public MerchantSource getMerchant()
     {
         return this.merchant;
+    }
+
+    LCSource getLocation()
+    {
+        return this.location;
     }
 }

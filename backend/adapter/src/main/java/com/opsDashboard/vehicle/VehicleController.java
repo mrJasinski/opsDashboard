@@ -1,10 +1,9 @@
 package com.opsDashboard.vehicle;
 
 import com.opsDashboard.security.JwtService;
+import com.opsDashboard.vehicle.dto.PUCodeRequestDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 class VehicleController
@@ -22,5 +21,14 @@ class VehicleController
     ResponseEntity<?> getVehicleByStockIdAsDto(@RequestParam(name = "stockId") String stockId)
     {
         return ResponseEntity.ok(this.vehicleService.getVehicleByStockIdAsDto(stockId));
+    }
+
+    @PostMapping("/requestPUCode")
+    ResponseEntity<?> requestPUCode(@RequestBody PUCodeRequestDTO request)
+    {
+        this.vehicleService.requestPUCode(request);
+
+//        TODO
+        return ResponseEntity.ok("PU Code!");
     }
 }

@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="working on tickets module - creating and saving ticket from frontend sent form">
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/dto/TicketDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/TicketFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/SqlLogisticCenterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/dto/PUCodeRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenterRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/PUCodeRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/LCSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/ticket/TicketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/dto/TicketWriteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/ticket/dto/TicketWriteModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/ticket/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -229,7 +232,11 @@
       <workItem from="1711523830391" duration="6492000" />
       <workItem from="1711618014321" duration="4941000" />
       <workItem from="1711640811106" duration="36000" />
-      <workItem from="1711723234286" duration="5632000" />
+      <workItem from="1711723234286" duration="5657000" />
+      <workItem from="1712309244275" duration="2124000" />
+      <workItem from="1712479778740" duration="9992000" />
+      <workItem from="1712744289218" duration="2258000" />
+      <workItem from="1712841722827" duration="5762000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -303,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711727684030</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="working on tickets module - creating and saving ticket from frontend sent form">
+      <option name="closed" value="true" />
+      <created>1711728888082</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711728888082</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -31,8 +31,8 @@
         </attributes>
     </entity>
 
-    <entity class="com.opsDashboard.user.User$Workday" access="FIELD" >
-        <table name="workdays" />
+    <entity class="com.opsDashboard.user.User$Workday" access="FIELD" name="UserWorkday">
+        <table name="user_workdays" />
         <attributes>
             <id name="id">
                 <generated-value strategy="IDENTITY" />
@@ -214,6 +214,87 @@
         </attributes>
     </entity>
 
+    <entity class="com.opsDashboard.vehicle.LogisticCenter" access="FIELD" >
+        <table name="logistic_centers" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="name" />
+            <basic name="address" />
+            <one-to-many name="workdays">
+                <join-column name="logistic_center_id" />
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+            <one-to-many name="restrictedDays">
+                <join-column name="logistic_center_id" />
+                <cascade>
+                    <cascade-all/>
+                </cascade>
+            </one-to-many>
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.vehicle.LogisticCenter$RestrictedDay" access="FIELD" >
+        <table name="restricted_days" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="restrictedDate" />
+            <basic name="workday" />
+            <basic name="type" >
+                <enumerated>STRING</enumerated>
+            </basic>
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.vehicle.LogisticCenter$Workday" access="FIELD" name="LCWorkday">
+        <table name="logistic_center_workdays" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="weekday" >
+                <enumerated>STRING</enumerated>
+            </basic>
+            <basic name="openingTime" />
+            <basic name="closingTime" />
+            <basic name="puSlots" />
+        </attributes>
+    </entity>
+
+    <entity class="com.opsDashboard.vehicle.PUCodeRequest" access="FIELD">
+        <table name="pu_code_requests" />
+        <attributes>
+            <id name="id">
+                <generated-value strategy="IDENTITY" />
+            </id>
+            <basic name="timestamp" />
+            <basic name="puDate" />
+            <basic name="status" >
+                <enumerated>STRING</enumerated>
+            </basic>
+            <embedded name="vehicle">
+                <attribute-override name="id">
+                    <column name="vehicle_id"/>
+                </attribute-override>
+            </embedded>
+            <embedded name="requester">
+                <attribute-override name="id">
+                    <column name="user_id"/>
+                </attribute-override>
+            </embedded>
+            <embedded name="lc">
+                <attribute-override name="id">
+                    <column name="lc_id"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+
     <embeddable class="com.opsDashboard.vo.UserSource" access="FIELD">
         <attributes>
             <basic name="id" />
@@ -237,4 +318,11 @@
             <basic name="id" />
         </attributes>
     </embeddable>
+
+    <embeddable class="com.opsDashboard.vo.LCSource" access="FIELD" >
+        <attributes>
+            <basic name="id" />
+        </attributes>
+    </embeddable>
+
 </entity-mappings>
