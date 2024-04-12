@@ -145,6 +145,8 @@ public class UserService
                 );
     }
 
+//    raport czasu pracy tygodniowy/miesięczny/kwartalny w tym urlopy l4 itd?
+
 //    private User getUserWithLowestDailyAssignedTicketsByCountryAndDate(final Country country, final LocalDate date)
 //    {
 //        return this.userRepo.findAvailableWithLowestDailyAssignedTicketByCountryAndDate(country, date);

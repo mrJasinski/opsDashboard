@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="working on tickets module - creating and saving ticket from frontend sent form">
-      <change afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/SqlLogisticCenterRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/dto/PUCodeRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenterRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/PUCodeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vo/LCSource.java" afterDir="false" />
+    <list default="true" id="1537ddd0-cf1f-4730-b819-9012640e2c92" name="Changes" comment="pick up code request backend works">
+      <change afterPath="$PROJECT_DIR$/backend/app/src/test/java/com/opsDashboard/vehicle/VehicleServiceUnitTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/java/com/opsDashboard/vehicle/VehicleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/adapter/src/main/resources/META-INF/orm.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/user/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/src/main/java/com/opsDashboard/vehicle/VehicleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/domain/src/main/java/com/opsDashboard/vehicle/LogisticCenter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,10 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -56,46 +50,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;JUnit.UserServiceIntegrationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceIntegrationTest.getUserWithPreviouslyAssignedClaim_shouldReturnUser.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUnitTest.getWorkDayByDate.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.opsDashboard [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.opsDashboard [install].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Spring Boot.OpsDashboardApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;D:/projekty/opsDashboard/backend/app/src/main/java/com/opsDashboard/claim&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/projekty/opsDashboard/backend/adapter&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.importing&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\projekty\\opsDashboard\\angular-frontend\\angular-frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "JUnit.UserServiceIntegrationTest.executor": "Run",
+    "JUnit.UserServiceIntegrationTest.getUserWithPreviouslyAssignedClaim_shouldReturnUser.executor": "Run",
+    "JUnit.UserUnitTest.getWorkDayByDate.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.checkIfAreAvailableSlotsByDateAndLC_shouldReturnFalseIfAcceptedPURequestCountIsNotLesserThanPUSlotsAvailable.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.checkIfAreAvailableSlotsByDateAndLC_shouldReturnTrueIfAcceptedPURequestCountIsLesserThanPUSlotsAvailable.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getNextAvailableDayByDateAndLC_shouldReturnPUDatePlusOneIfVeryNextDayIsAvailable.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getNextWorkingDay_shouldReturnNextWorkingDayAfterGivenDateFromLCWorkingWeekdaysSet.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getPuRequestCountByDateAndLCId_shouldReturnAmountOfAcceptedPUCodeRequestWithGivenDateFound.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getPuRequestCountByDateAndLCId_shouldReturnZeroIfAcceptedPUCodeRequestWithGivenDateFound.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getVehicleByStockId_shouldReturnVehicleWhenStockIdFound.executor": "Run",
+    "JUnit.VehicleServiceUnitTest.getVehicleByStockId_shouldThrowExceptionWhenStockIdNotFound.executor": "Run",
+    "Maven.opsDashboard [clean].executor": "Run",
+    "Maven.opsDashboard [install].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.OpsDashboardApplication.executor": "Run",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "D:/projekty/opsDashboard/backend/app/src/main/java/com/opsDashboard/claim",
+    "last_opened_file_path": "D:/projekty/opsDashboard/backend/adapter",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.importing",
+    "ts.external.directory.path": "D:\\projekty\\opsDashboard\\angular-frontend\\angular-frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;h2&quot;,
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2",
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\projekty\opsDashboard\backend\adapter" />
@@ -111,52 +113,86 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.opsDashboard.vehicle" />
       <recent name="com.opsDashboard.user" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.OpsDashboardApplication">
-    <configuration name="UserServiceIntegrationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="monolith" />
+  <component name="RunManager" selected="JUnit.VehicleServiceUnitTest.getNextAvailableDayByDateAndLC_shouldReturnPUDatePlusOneIfVeryNextDayIsAvailable">
+    <configuration name="VehicleServiceUnitTest.checkIfAreAvailableSlotsByDateAndLC_shouldReturnTrueIfAcceptedPURequestCountIsLesserThanPUSlotsAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.opsDashboard.user.dto.*" />
+          <option name="PATTERN" value="com.opsDashboard.vehicle.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.opsDashboard.user" />
-      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.user.UserServiceIntegrationTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceIntegrationTest.getUserWithPreviouslyAssignedClaim_shouldReturnUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="monolith" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.opsDashboard.user.dto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.opsDashboard.user" />
-      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.user.UserServiceIntegrationTest" />
-      <option name="METHOD_NAME" value="getUserWithPreviouslyAssignedClaim_shouldReturnUser" />
+      <option name="PACKAGE_NAME" value="com.opsDashboard.vehicle" />
+      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.vehicle.VehicleServiceUnitTest" />
+      <option name="METHOD_NAME" value="checkIfAreAvailableSlotsByDateAndLC_shouldReturnTrueIfAcceptedPURequestCountIsLesserThanPUSlotsAvailable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserUnitTest.getWorkDayByDate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="domain" />
+    <configuration name="VehicleServiceUnitTest.getNextAvailableDayByDateAndLC_shouldReturnPUDatePlusOneIfVeryNextDayIsAvailable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.opsDashboard.user.*" />
+          <option name="PATTERN" value="com.opsDashboard.vehicle.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.opsDashboard.user" />
-      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.user.UserUnitTest" />
-      <option name="METHOD_NAME" value="getWorkDayByDate" />
+      <option name="PACKAGE_NAME" value="com.opsDashboard.vehicle" />
+      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.vehicle.VehicleServiceUnitTest" />
+      <option name="METHOD_NAME" value="getNextAvailableDayByDateAndLC_shouldReturnPUDatePlusOneIfVeryNextDayIsAvailable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleServiceUnitTest.getNextWorkingDay_shouldReturnNextWorkingDayAfterGivenDateFromLCWorkingWeekdaysSet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.opsDashboard.vehicle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.opsDashboard.vehicle" />
+      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.vehicle.VehicleServiceUnitTest" />
+      <option name="METHOD_NAME" value="getNextWorkingDay_shouldReturnNextWorkingDayAfterGivenDateFromLCWorkingWeekdaysSet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleServiceUnitTest.getVehicleByStockId_shouldReturnVehicleWhenStockIdFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.opsDashboard.vehicle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.opsDashboard.vehicle" />
+      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.vehicle.VehicleServiceUnitTest" />
+      <option name="METHOD_NAME" value="getVehicleByStockId_shouldReturnVehicleWhenStockIdFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleServiceUnitTest.getVehicleByStockId_shouldThrowExceptionWhenStockIdNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.opsDashboard.vehicle.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.opsDashboard.vehicle" />
+      <option name="MAIN_CLASS_NAME" value="com.opsDashboard.vehicle.VehicleServiceUnitTest" />
+      <option name="METHOD_NAME" value="getVehicleByStockId_shouldThrowExceptionWhenStockIdNotFound" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,9 +207,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.UserUnitTest.getWorkDayByDate" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest" />
-        <item itemvalue="JUnit.UserServiceIntegrationTest.getUserWithPreviouslyAssignedClaim_shouldReturnUser" />
+        <item itemvalue="JUnit.VehicleServiceUnitTest.getNextAvailableDayByDateAndLC_shouldReturnPUDatePlusOneIfVeryNextDayIsAvailable" />
+        <item itemvalue="JUnit.VehicleServiceUnitTest.getVehicleByStockId_shouldReturnVehicleWhenStockIdFound" />
+        <item itemvalue="JUnit.VehicleServiceUnitTest.getVehicleByStockId_shouldThrowExceptionWhenStockIdNotFound" />
+        <item itemvalue="JUnit.VehicleServiceUnitTest.getNextWorkingDay_shouldReturnNextWorkingDayAfterGivenDateFromLCWorkingWeekdaysSet" />
+        <item itemvalue="JUnit.VehicleServiceUnitTest.checkIfAreAvailableSlotsByDateAndLC_shouldReturnTrueIfAcceptedPURequestCountIsLesserThanPUSlotsAvailable" />
       </list>
     </recent_temporary>
   </component>
@@ -236,7 +274,8 @@
       <workItem from="1712309244275" duration="2124000" />
       <workItem from="1712479778740" duration="9992000" />
       <workItem from="1712744289218" duration="2258000" />
-      <workItem from="1712841722827" duration="5762000" />
+      <workItem from="1712841722827" duration="5816000" />
+      <workItem from="1712914605204" duration="14731000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -318,7 +357,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711728888082</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="pick up code request backend works">
+      <option name="closed" value="true" />
+      <created>1712849354037</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1712849354037</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +380,7 @@
     <MESSAGE value="works on logic in front and back end for special access" />
     <MESSAGE value="introducing tickets module" />
     <MESSAGE value="working on tickets module - creating and saving ticket from frontend sent form" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on tickets module - creating and saving ticket from frontend sent form" />
+    <MESSAGE value="pick up code request backend works" />
+    <option name="LAST_COMMIT_MESSAGE" value="pick up code request backend works" />
   </component>
 </project>

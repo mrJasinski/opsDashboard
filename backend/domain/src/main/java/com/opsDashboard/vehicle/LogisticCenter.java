@@ -14,10 +14,39 @@ class LogisticCenter
     private Set<Workday> workdays;  // working days in week eg MONDAY, TUESDAY etc
 //    days when LC is extra closed or has shortened working hours etc
     private Set<RestrictedDay> restrictedDays;
+    private LocalTime nextDayRequestLatestTime; //TODO lepsza nazwa
+
+    LogisticCenter()
+    {
+    }
+
+    LogisticCenter(
+            final String name
+            , final String address
+            , final Set<Workday> workdays
+            , final Set<RestrictedDay> restrictedDays
+            , final LocalTime nextDayRequestLatestTime)
+    {
+        this.name = name;
+        this.address = address;
+        this.workdays = workdays;
+        this.restrictedDays = restrictedDays;
+        this.nextDayRequestLatestTime = nextDayRequestLatestTime;
+    }
 
     int getId()
     {
         return this.id;
+    }
+
+    LocalTime getNextDayRequestLatestTime()
+    {
+        return this.nextDayRequestLatestTime;
+    }
+
+    void addRestrictedDay(RestrictedDay day)
+    {
+        this.restrictedDays.add(day);
     }
 
     Set<LocalDate> getRestrictedDaysDates()
@@ -66,6 +95,11 @@ class LogisticCenter
             return getRestrictionTypeByDate(puDate).equals(RestrictedDay.Type.CLOSED);
 
         return false;
+    }
+
+    void addWorkday(Workday workday)
+    {
+        this.workdays.add(workday);
     }
 
     Set<DayOfWeek> getWorkdaysDaysOfWeek()
@@ -118,6 +152,18 @@ class LogisticCenter
         private LocalTime openingTime;
         private LocalTime closingTime;
         private int puSlots;
+
+        Workday()
+        {
+        }
+
+        Workday(final DayOfWeek weekday, final LocalTime openingTime, final LocalTime closingTime, final int puSlots)
+        {
+            this.weekday = weekday;
+            this.openingTime = openingTime;
+            this.closingTime = closingTime;
+            this.puSlots = puSlots;
+        }
 
         int getId()
         {

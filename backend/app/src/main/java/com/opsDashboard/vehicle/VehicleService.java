@@ -36,10 +36,8 @@ class VehicleService
         );
     }
 
-    private Vehicle getVehicleByStockId(final String stockId)
+    Vehicle getVehicleByStockId(final String stockId)
     {
-//        TODO check czy stock id jest poprawny?
-
         return this.vehicleRepo.findByStockId(stockId)
                 .orElseThrow(() -> new NoSuchElementException("Vehicle with given stock id not found!"));
     }
@@ -50,13 +48,12 @@ class VehicleService
         var puDate = request.getPuDate();
 
         if (puDate.equals(LocalDate.now().plusDays(1)))
-            if (request.getTime().isAfter(LocalTime.of(14, 0)))
-            {
-                getNextAvailableDayByDateAndLC(puDate, lc);
-            }
+            if (request.getTime().isAfter(lc.getNextDayRequestLatestTime()))
+                puDate = getNextAvailableDayByDateAndLC(puDate, lc);
+
 
         if (lc.checkIfLCIsClosedByDate(puDate))
-                getNextAvailableDayByDateAndLC(request.getPuDate(), lc);
+            puDate = getNextAvailableDayByDateAndLC(puDate, lc);
 
         // check if there are still available slots if not propose next available day
 
@@ -68,13 +65,10 @@ class VehicleService
 //                check if has available pu slots
 //                if not propose next available day
 
-//                notify LC about pu request
-
-
-
+//                notify LC about pu request or propose merchant next available date?
     }
 
-    private LocalDate getNextAvailableDayByDateAndLC(final LocalDate puDate, final LogisticCenter lc)
+    LocalDate getNextAvailableDayByDateAndLC(final LocalDate puDate, final LogisticCenter lc)
     {
         var toCheck = puDate.plusDays(1);
         var workingWeekdays = lc.getWorkdaysDaysOfWeek();
@@ -109,15 +103,18 @@ class VehicleService
         return toCheck;
     }
 
-    private boolean checkIfAreAvailableSlotsByDateAndLC(final LocalDate puDate, final LogisticCenter lc)
+    boolean checkIfAreAvailableSlotsByDateAndLC(final LocalDate puDate, final LogisticCenter lc)
     {
-//        getPuRequestCountByDateAndLCId(puDate, lc.getId());
-        var count = this.lcRepo.findPuRequestCountByDateAndLCIdAndStatus(puDate, lc.getId(), PUCodeRequest.Status.ACCEPTED).orElse(0);
-
-        return count < lc.getSlotsByDate(puDate);
+        return getPuRequestCountByDateAndLCId(puDate, lc.getId()) < lc.getSlotsByDate(puDate);
     }
 
-    private LogisticCenter getLCById(final int lcId)
+    int getPuRequestCountByDateAndLCId(final LocalDate puDate, final int lcId)
+    {
+        return this.lcRepo.findPuRequestCountByDateAndLCIdAndStatus(puDate, lcId, PUCodeRequest.Status.ACCEPTED)
+                .orElse(0);
+    }
+
+    LogisticCenter getLCById(final int lcId)
     {
         return this.lcRepo.findById(lcId)
                 .orElseThrow(() -> new NoSuchElementException("LC with given id not found!"));
