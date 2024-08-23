@@ -23,6 +23,7 @@ class TicketController
     @GetMapping("/pendingTickets")
     ResponseEntity<?> getPendingTickets()
     {
+//        zawartość testowa
         var result = new ArrayList<>();
 
         for (int i = 0; i < 20; i++)
@@ -38,6 +39,12 @@ class TicketController
 
         return ResponseEntity.ok("Message successfully sent!");
     }
+
+//    TODO
+//    GET kategorie po rodzaju/grupie maila - klient/sales/gość/ops itd
+//    GET subkategorie z danej kategorii / też wg grupy?
+//    podpowiedzi stock id (np dla klienta)?
+
 
     @GetMapping(value = "/tickets", params = {"filter"})
     ResponseEntity<?> getTickets(HttpServletRequest request, @RequestParam(name = "filter") TicketFilter filter)

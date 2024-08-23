@@ -144,8 +144,11 @@ public class UserService
 // TODO
                 );
     }
-
+//TODO
 //    raport czasu pracy tygodniowy/miesięczny/kwartalny w tym urlopy l4 itd?
+//    np wykorztstanie ho - np założenie że 40% dni pracy trzeba spędzić w biurze
+//    raporty ticketów
+//    KPI - czy w dashboard service?
 
 //    private User getUserWithLowestDailyAssignedTicketsByCountryAndDate(final Country country, final LocalDate date)
 //    {

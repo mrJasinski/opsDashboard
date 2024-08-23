@@ -40,6 +40,7 @@ const appRoutes: Routes = [
     , AuthComponent
     , SAComponent
     , VehicleComponent
+    , ContactComponent
   ],
   imports: [
     BrowserModule
